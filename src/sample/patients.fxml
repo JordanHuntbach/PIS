@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -19,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 
 <TabPane prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <Tab text="Patients">
+    <Tab onSelectionChanged="#getPatients" text="Patients">
         <VBox prefHeight="200.0" prefWidth="100.0">
          <FlowPane>
             <children>
@@ -29,6 +30,11 @@
                   </FlowPane.margin>
                </Button>
                <Button mnemonicParsing="false" onAction="#getPatients" text="Search / Refresh">
+                  <FlowPane.margin>
+                     <Insets left="5.0" />
+                  </FlowPane.margin>
+               </Button>
+               <Button layoutX="110.0" layoutY="15.0" mnemonicParsing="false" onAction="#clearPatients" text="Clear Filters">
                   <FlowPane.margin>
                      <Insets left="5.0" />
                   </FlowPane.margin>
@@ -45,32 +51,32 @@
                      <Label text="Include in results:" underline="true" />
                      <FlowPane>
                         <children>
-                           <CheckBox fx:id="check_address" mnemonicParsing="false" text="Address">
+                           <CheckBox fx:id="check_address" mnemonicParsing="false" onAction="#getPatients" text="Address">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
                            </CheckBox>
-                           <CheckBox fx:id="check_contact" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="Contact Number">
+                           <CheckBox fx:id="check_contact" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#getPatients" text="Contact Number">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
                            </CheckBox>
-                           <CheckBox fx:id="check_nok" layoutX="95.0" layoutY="15.0" mnemonicParsing="false" text="Next of Kin (NoK)">
+                           <CheckBox fx:id="check_nok" layoutX="95.0" layoutY="15.0" mnemonicParsing="false" onAction="#getPatients" text="Next of Kin (NoK)">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
                            </CheckBox>
-                           <CheckBox fx:id="check_nok_contact" layoutX="226.0" layoutY="15.0" mnemonicParsing="false" text="NoK Contact Number">
+                           <CheckBox fx:id="check_nok_contact" layoutX="226.0" layoutY="15.0" mnemonicParsing="false" onAction="#getPatients" text="NoK Contact Number">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
                            </CheckBox>
-                           <CheckBox fx:id="check_risk" layoutX="358.0" layoutY="15.0" mnemonicParsing="false" text="Risk Level">
+                           <CheckBox fx:id="check_risk" layoutX="358.0" layoutY="15.0" mnemonicParsing="false" onAction="#getPatients" text="Risk Level">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
                            </CheckBox>
-                           <CheckBox fx:id="check_comments" layoutX="320.0" layoutY="43.0" mnemonicParsing="false" text="Comments">
+                           <CheckBox fx:id="check_comments" layoutX="320.0" layoutY="43.0" mnemonicParsing="false" onAction="#getPatients" text="Comments">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
@@ -98,7 +104,7 @@
                                        <Insets right="5.0" />
                                     </HBox.margin>
                                  </Label>
-                                 <TextField fx:id="patientID" />
+                                 <TextField fx:id="patientID" onAction="#getPatients" />
                               </children>
                               <FlowPane.margin>
                                  <Insets left="10.0" right="10.0" top="10.0" />
@@ -111,7 +117,7 @@
                                        <Insets right="5.0" />
                                     </HBox.margin>
                                  </Label>
-                                 <TextField fx:id="patientFirstName" />
+                                 <TextField fx:id="patientFirstName" onAction="#getPatients" />
                               </children>
                               <FlowPane.margin>
                                  <Insets left="10.0" right="10.0" top="10.0" />
@@ -124,7 +130,7 @@
                                        <Insets right="5.0" />
                                     </HBox.margin>
                                  </Label>
-                                 <TextField fx:id="patientLastName" />
+                                 <TextField fx:id="patientLastName" onAction="#getPatients" />
                               </children>
                               <FlowPane.margin>
                                  <Insets left="10.0" right="10.0" top="10.0" />
@@ -137,7 +143,7 @@
                                        <Insets right="5.0" />
                                     </HBox.margin>
                                  </Label>
-                                 <DatePicker fx:id="patientDOB" showWeekNumbers="false" />
+                                 <DatePicker fx:id="patientDOB" onAction="#getPatients" showWeekNumbers="false" />
                               </children>
                               <FlowPane.margin>
                                  <Insets left="10.0" right="10.0" top="10.0" />
@@ -148,14 +154,14 @@
                </VBox>
             </content>
          </TitledPane>
-            <TableView fx:id="patientsTable">
+         <TableView fx:id="patientsTable">
             <VBox.margin>
                <Insets />
             </VBox.margin>
-            </TableView>
+         </TableView>
         </VBox>
     </Tab>
-   <Tab text="Diagnoses">
+    <Tab onSelectionChanged="#updateDiagnosisSelectors" text="Diagnoses">
       <content>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
@@ -167,6 +173,11 @@
                         </FlowPane.margin>
                      </Button>
                      <Button mnemonicParsing="false" onAction="#getDiagnoses" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button layoutX="127.0" layoutY="15.0" mnemonicParsing="false" onAction="#clearDiagnoses" text="Clear Filters">
                         <FlowPane.margin>
                            <Insets left="5.0" />
                         </FlowPane.margin>
@@ -194,7 +205,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisID" />
+                                       <TextField fx:id="diagnosisID" onAction="#getDiagnoses" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -207,7 +218,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisPID" />
+                                       <TextField fx:id="diagnosisPID" onAction="#getDiagnoses" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -220,7 +231,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisFName" />
+                                       <TextField fx:id="diagnosisFName" onAction="#getDiagnoses" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -233,7 +244,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisLName" />
+                                       <TextField fx:id="diagnosisLName" onAction="#getDiagnoses" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -246,7 +257,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <DatePicker fx:id="diagnosisDate" showWeekNumbers="false" />
+                                       <DatePicker fx:id="diagnosisDate" onAction="#getDiagnoses" showWeekNumbers="false" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -259,7 +270,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisConsultant" />
+                                       <ChoiceBox fx:id="diagnosisConsultant" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -272,7 +283,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="diagnosisCondition" />
+                                       <ChoiceBox fx:id="diagnosisCondition" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -293,7 +304,7 @@
          </VBox>
       </content>
    </Tab>
-   <Tab text="Prescriptions">
+    <Tab onSelectionChanged="#updatePrescriptionSelectors" text="Prescriptions">
       <content>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
@@ -305,6 +316,11 @@
                         </FlowPane.margin>
                      </Button>
                      <Button mnemonicParsing="false" onAction="#getPrescriptions" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#clearPrescriptions" text="Clear Filters">
                         <FlowPane.margin>
                            <Insets left="5.0" />
                         </FlowPane.margin>
@@ -332,7 +348,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionID" />
+                                       <TextField fx:id="prescriptionID" onAction="#getPrescriptions" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -345,7 +361,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionPID" />
+                                       <TextField fx:id="prescriptionPID" onAction="#getPrescriptions" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -358,7 +374,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionFName" />
+                                       <TextField fx:id="prescriptionFName" onAction="#getPrescriptions" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -371,7 +387,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionLName" />
+                                       <TextField fx:id="prescriptionLName" onAction="#getPrescriptions" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -384,7 +400,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <DatePicker fx:id="prescriptionDate" showWeekNumbers="false" />
+                                       <DatePicker fx:id="prescriptionDate" onAction="#getPrescriptions" showWeekNumbers="false" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -397,7 +413,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionConsultant" />
+                                       <ChoiceBox fx:id="prescriptionConsultant" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -410,7 +426,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="prescriptionMeds" />
+                                       <ChoiceBox fx:id="prescriptionMeds" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -431,7 +447,7 @@
          </VBox>
       </content>
    </Tab>
-   <Tab text="Consultations">
+    <Tab onSelectionChanged="#updateConsultationSelectors" text="Consultations">
       <content>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
@@ -443,6 +459,11 @@
                         </FlowPane.margin>
                      </Button>
                      <Button mnemonicParsing="false" onAction="#getConsultations" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#clearConsultations" text="Clear Filters">
                         <FlowPane.margin>
                            <Insets left="5.0" />
                         </FlowPane.margin>
@@ -470,7 +491,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationID" />
+                                       <TextField fx:id="consultationID" onAction="#getConsultations" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -483,7 +504,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationPID" />
+                                       <TextField fx:id="consultationPID" onAction="#getConsultations" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -496,7 +517,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationFName" />
+                                       <TextField fx:id="consultationFName" onAction="#getConsultations" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -509,7 +530,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationLName" />
+                                       <TextField fx:id="consultationLName" onAction="#getConsultations" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -522,7 +543,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <DatePicker fx:id="consultationDate" showWeekNumbers="false" />
+                                       <DatePicker fx:id="consultationDate" onAction="#getConsultations" showWeekNumbers="false" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -535,7 +556,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationConsultant" />
+                                       <ChoiceBox fx:id="consultationConsultant" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -548,7 +569,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="consultationLocation" />
+                                       <ChoiceBox fx:id="consultationLocation" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -569,7 +590,7 @@
          </VBox>
       </content>
    </Tab>
-   <Tab text="Treatments">
+    <Tab onSelectionChanged="#updateTreatmentSelectors" text="Treatments">
       <content>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
@@ -581,6 +602,11 @@
                         </FlowPane.margin>
                      </Button>
                      <Button mnemonicParsing="false" onAction="#getTreatments" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#clearTreatments" text="Clear Filters">
                         <FlowPane.margin>
                            <Insets left="5.0" />
                         </FlowPane.margin>
@@ -608,7 +634,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentID" />
+                                       <TextField fx:id="treatmentID" onAction="#getTreatments" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -621,7 +647,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentPID" />
+                                       <TextField fx:id="treatmentPID" onAction="#getTreatments" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -634,7 +660,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentFName" />
+                                       <TextField fx:id="treatmentFName" onAction="#getTreatments" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -647,7 +673,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentLName" />
+                                       <TextField fx:id="treatmentLName" onAction="#getTreatments" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -660,7 +686,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <DatePicker fx:id="treatmentDate" showWeekNumbers="false" />
+                                       <DatePicker fx:id="treatmentDate" onAction="#getTreatments" showWeekNumbers="false" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -673,7 +699,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentConsultant" />
+                                       <ChoiceBox fx:id="treatmentConsultant" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -686,7 +712,7 @@
                                              <Insets right="5.0" />
                                           </HBox.margin>
                                        </Label>
-                                       <TextField fx:id="treatmentTreatment" />
+                                       <ChoiceBox fx:id="treatmentTreatment" prefWidth="150.0" />
                                     </children>
                                     <FlowPane.margin>
                                        <Insets left="10.0" right="10.0" top="10.0" />
@@ -707,7 +733,7 @@
          </VBox>
       </content>
    </Tab>
-   <Tab text="Add Options">
+    <Tab text="Add Options">
       <content>
          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
       </content>

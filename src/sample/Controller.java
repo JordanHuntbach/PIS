@@ -34,8 +34,8 @@ public class Controller {
     public TextField diagnosisPID;
     public TextField diagnosisFName;
     public TextField diagnosisLName;
-    public TextField diagnosisConsultant;
-    public TextField diagnosisCondition;
+    public ChoiceBox<String> diagnosisConsultant;
+    public ChoiceBox<String> diagnosisCondition;
     public DatePicker diagnosisDate;
 
 
@@ -46,8 +46,8 @@ public class Controller {
     public TextField prescriptionPID;
     public TextField prescriptionFName;
     public TextField prescriptionLName;
-    public TextField prescriptionConsultant;
-    public TextField prescriptionMeds;
+    public ChoiceBox<String> prescriptionConsultant;
+    public ChoiceBox<String> prescriptionMeds;
     public DatePicker prescriptionDate;
 
 
@@ -59,8 +59,8 @@ public class Controller {
     public TextField consultationFName;
     public TextField consultationLName;
     public DatePicker consultationDate;
-    public TextField consultationConsultant;
-    public TextField consultationLocation;
+    public ChoiceBox<String> consultationConsultant;
+    public ChoiceBox<String> consultationLocation;
 
     // Treatments Tab
     @FXML
@@ -70,17 +70,15 @@ public class Controller {
     public TextField treatmentFName;
     public TextField treatmentLName;
     public DatePicker treatmentDate;
-    public TextField treatmentConsultant;
-    public TextField treatmentTreatment;
+    public ChoiceBox<String> treatmentConsultant;
+    public ChoiceBox<String> treatmentTreatment;
 
     private Connection conn;
 
     public Controller() {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://mysql.dur.ac.uk/Pkdkj55_Patient_Monitoring?" + "user=kdkj55&password=nor74th");
-            // Do something with the Connection
         } catch (SQLException ex) {
-            // handle any errors
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
@@ -207,8 +205,8 @@ public class Controller {
         String pid = diagnosisPID.getText();
         String fName = diagnosisFName.getText();
         String lName = diagnosisLName.getText();
-        String consultant = diagnosisConsultant.getText();
-        String condition = diagnosisCondition.getText();
+        String consultant = diagnosisConsultant.getValue();
+        String condition = diagnosisCondition.getValue();
         LocalDate dateValue = diagnosisDate.getValue();
         String date = "";
         if (dateValue != null) {
@@ -289,7 +287,7 @@ public class Controller {
         }
     }
 
-    public String getPrescriptionsSQL() {
+    private String getPrescriptionsSQL() {
         String sql = "SELECT Prescriptions.id, Prescriptions.patient_id, Patients.first_name, Patients.surname, Prescriptions.date, Medications.medication, Consultants.name, Prescriptions.comment " +
                 "FROM Prescriptions " +
                 "INNER JOIN Patients ON Prescriptions.patient_id = Patients.id " +
@@ -300,8 +298,8 @@ public class Controller {
         String pid = prescriptionPID.getText();
         String fName = prescriptionFName.getText();
         String lName = prescriptionLName.getText();
-        String consultant = prescriptionConsultant.getText();
-        String medication = prescriptionMeds.getText();
+        String consultant = prescriptionConsultant.getValue();
+        String medication = prescriptionMeds.getValue();
         LocalDate dateValue = prescriptionDate.getValue();
         String date = "";
         if (dateValue != null) {
@@ -382,7 +380,7 @@ public class Controller {
         }
     }
 
-    public String getConsultationsSQL() {
+    private String getConsultationsSQL() {
         String sql = "SELECT Consultations.id, Consultations.patient_id, Patients.first_name, Patients.surname, Consultations.date, Consultations.time,  Consultants.name, `GP Practices`.name, Consultations.comment " +
                 "FROM  Consultations " +
                 "INNER JOIN Patients ON Consultations.patient_id = Patients.id " +
@@ -393,8 +391,8 @@ public class Controller {
         String pid = consultationPID.getText();
         String fName = consultationFName.getText();
         String lName = consultationLName.getText();
-        String consultant = consultationConsultant.getText();
-        String location = consultationLocation.getText();
+        String consultant = consultationConsultant.getValue();
+        String location = consultationLocation.getValue();
         LocalDate dateValue = consultationDate.getValue();
         String date = "";
         if (dateValue != null) {
@@ -487,8 +485,8 @@ public class Controller {
         String pid = treatmentPID.getText();
         String fName = treatmentFName.getText();
         String lName = treatmentLName.getText();
-        String consultant = treatmentConsultant.getText();
-        String treatment = treatmentTreatment.getText();
+        String consultant = treatmentConsultant.getValue();
+        String treatment = treatmentTreatment.getValue();
         LocalDate dateValue = treatmentDate.getValue();
         String date = "";
         if (dateValue != null) {
@@ -568,5 +566,190 @@ public class Controller {
             System.out.println("SQLState: " + e.getSQLState());
             System.out.println("VendorError: " + e.getErrorCode());
         }
+    }
+
+    public void updateTreatmentSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT treatment FROM Treatment");
+            ObservableList<String> treatments = FXCollections.observableArrayList();
+            treatments.add("");
+            while (rs.next()) {
+                treatments.add(rs.getString("treatment"));
+            }
+            treatmentTreatment.setItems(treatments);
+            treatmentTreatment.setValue("");
+            treatmentTreatment.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
+
+            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            ObservableList<String> consultants = FXCollections.observableArrayList();
+            consultants.add("");
+            while (rs.next()) {
+                consultants.add(rs.getString("name"));
+            }
+            treatmentConsultant.setItems(consultants);
+            treatmentConsultant.setValue("");
+            treatmentConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
+    public void updateConsultationSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT name FROM `GP Practices`");
+            ObservableList<String> locations = FXCollections.observableArrayList();
+            locations.add("");
+            while (rs.next()) {
+                locations.add(rs.getString("name"));
+            }
+            consultationLocation.setItems(locations);
+            consultationLocation.setValue("");
+            consultationLocation.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
+
+            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            ObservableList<String> consultants = FXCollections.observableArrayList();
+            consultants.add("");
+            while (rs.next()) {
+                consultants.add(rs.getString("name"));
+            }
+            consultationConsultant.setItems(consultants);
+            consultationConsultant.setValue("");
+            consultationConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
+    public void updatePrescriptionSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT medication FROM Medications");
+            ObservableList<String> medicines = FXCollections.observableArrayList();
+            medicines.add("");
+            while (rs.next()) {
+                medicines.add(rs.getString("medication"));
+            }
+            prescriptionMeds.setItems(medicines);
+            prescriptionMeds.setValue("");
+            prescriptionMeds.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
+
+            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            ObservableList<String> consultants = FXCollections.observableArrayList();
+            consultants.add("");
+            while (rs.next()) {
+                consultants.add(rs.getString("name"));
+            }
+            prescriptionConsultant.setItems(consultants);
+            prescriptionConsultant.setValue("");
+            prescriptionConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
+    public void updateDiagnosisSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT `condition` FROM Conditions");
+            ObservableList<String> condition = FXCollections.observableArrayList();
+            condition.add("");
+            while (rs.next()) {
+                condition.add(rs.getString("condition"));
+            }
+            diagnosisCondition.setItems(condition);
+            diagnosisCondition.setValue("");
+            diagnosisCondition.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
+
+            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            ObservableList<String> consultants = FXCollections.observableArrayList();
+            consultants.add("");
+            while (rs.next()) {
+                consultants.add(rs.getString("name"));
+            }
+            diagnosisConsultant.setItems(consultants);
+            diagnosisConsultant.setValue("");
+            diagnosisConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
+    public void clearPatients() {
+        check_address.setSelected(false);
+        check_contact.setSelected(false);
+        check_nok.setSelected(false);
+        check_nok_contact.setSelected(false);
+        check_risk.setSelected(false);
+        check_comments.setSelected(false);
+        patientID.clear();
+        patientFirstName.clear();
+        patientLastName.clear();
+        patientDOB.setValue(null);
+    }
+
+    public void clearDiagnoses() {
+        diagnosisID.clear();
+        diagnosisPID.clear();
+        diagnosisFName.clear();
+        diagnosisLName.clear();
+        diagnosisDate.setValue(null);
+        diagnosisCondition.setValue("");
+        diagnosisConsultant.setValue("");
+    }
+
+    public void clearPrescriptions() {
+        prescriptionID.clear();
+        prescriptionPID.clear();
+        prescriptionFName.clear();
+        prescriptionLName.clear();
+        prescriptionDate.setValue(null);
+        prescriptionConsultant.setValue("");
+        prescriptionMeds.setValue("");
+    }
+
+    public void clearConsultations() {
+        consultationID.clear();
+        consultationPID.clear();
+        consultationFName.clear();
+        consultationLName.clear();
+        consultationDate.setValue(null);
+        consultationConsultant.setValue("");
+        consultationLocation.setValue("");
+    }
+
+    public void clearTreatments() {
+        treatmentID.clear();
+        treatmentPID.clear();
+        treatmentFName.clear();
+        treatmentLName.clear();
+        treatmentDate.setValue(null);
+        treatmentConsultant.setValue("");
+        treatmentTreatment.setValue("");
     }
 }
