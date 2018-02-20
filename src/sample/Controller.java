@@ -141,6 +141,7 @@ public class Controller {
                 //We are using non property style for making dynamic table
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
+                // TODO: Map sql column name to a nicer one.
                 col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
                 patientsTable.getColumns().addAll(col);
                 System.out.println("Created column ["+i+"] ");
