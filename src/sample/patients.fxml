@@ -5,16 +5,12 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
@@ -44,7 +40,7 @@
          </FlowPane>
          <TitledPane text="Search Options">
             <content>
-               <VBox prefHeight="200.0" prefWidth="100.0">
+               <VBox>
                   <children>
                      <Label text="Include in results:" underline="true" />
                      <FlowPane>
@@ -70,21 +66,6 @@
                               </FlowPane.margin>
                            </CheckBox>
                            <CheckBox fx:id="check_risk" layoutX="358.0" layoutY="15.0" mnemonicParsing="false" text="Risk Level">
-                              <FlowPane.margin>
-                                 <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-                              </FlowPane.margin>
-                           </CheckBox>
-                           <CheckBox fx:id="check_diagnosis" layoutX="15.0" layoutY="43.0" mnemonicParsing="false" text="Diagnosis">
-                              <FlowPane.margin>
-                                 <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-                              </FlowPane.margin>
-                           </CheckBox>
-                           <CheckBox fx:id="check_treatment" layoutX="106.0" layoutY="43.0" mnemonicParsing="false" text="Treatment(s)">
-                              <FlowPane.margin>
-                                 <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-                              </FlowPane.margin>
-                           </CheckBox>
-                           <CheckBox fx:id="check_meds" layoutX="190.0" layoutY="43.0" mnemonicParsing="false" text="Prescribed Medication(s)">
                               <FlowPane.margin>
                                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                               </FlowPane.margin>
@@ -167,60 +148,563 @@
                </VBox>
             </content>
          </TitledPane>
-            <TableView fx:id="patientsTable" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="patientsTable">
             <VBox.margin>
                <Insets />
             </VBox.margin>
             </TableView>
         </VBox>
     </Tab>
-    <Tab text="Consultations">
+   <Tab text="Diagnoses">
       <content>
-         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10">
+         <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
-               <ToolBar prefHeight="40.0" prefWidth="200.0">
-                  <items>
-                     <Button mnemonicParsing="false" text="Add Consultation" />
-                     <SplitMenuButton mnemonicParsing="false" onAction="#getConsultations" text="Search">
-                        <items><MenuItem mnemonicParsing="false" text="Patient" />
-                            <MenuItem mnemonicParsing="false" text="Consultant" />
-                            <MenuItem mnemonicParsing="false" text="Consultant" />
-                        </items>
-                     </SplitMenuButton>
-                     <TextField />
-                  </items>
-               </ToolBar>
-               <TableView prefHeight="200.0" prefWidth="200.0">
-                  <columns>
-                     <TableColumn prefWidth="75.0" text="Patient">
-                        <columns>
-                           <TableColumn prefWidth="50.0" text="ID" />
-                           <TableColumn prefWidth="75.0" text="First Name" />
-                           <TableColumn prefWidth="75.0" text="Surname" />
-                        </columns>
-                     </TableColumn>
-                     <TableColumn prefWidth="200.0" text="Consultant" />
-                     <TableColumn prefWidth="200.0" text="Location" />
-                     <TableColumn prefWidth="75.0" text="Time" />
-                     <TableColumn prefWidth="75.0" text="Date" />
-                     <TableColumn prefWidth="400.0" text="Comments" />
-                  </columns>
+               <FlowPane>
+                  <children>
+                     <Button mnemonicParsing="false" text="Add Diagnosis">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" top="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#getDiagnoses" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </FlowPane>
+               <TitledPane text="Search Options">
+                  <content>
+                     <VBox>
+                        <children>
+                           <Label layoutX="20.0" layoutY="20.0" text="Search for diagnosis:" underline="true">
+                              <font>
+                                 <Font name="System Bold" size="13.0" />
+                              </font>
+                           </Label>
+                           <FlowPane>
+                              <children>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Diagnosis ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="20.0" layoutY="20.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Patient ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisPID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="First Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisFName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="214.0" layoutY="15.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Last Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisLName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Date:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <DatePicker fx:id="diagnosisDate" showWeekNumbers="false" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="283.0" layoutY="57.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Consultant:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisConsultant" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="262.0" layoutY="84.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Condition:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="diagnosisCondition" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                              </children>
+                           </FlowPane>
+                        </children>
+                     </VBox>
+                  </content>
+               </TitledPane>
+               <TableView fx:id="diagnosesTable">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
                </TableView>
             </children>
          </VBox>
       </content>
-    </Tab>
-    <Tab text="Prescriptions">
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-    </Tab>
-   <Tab text="Diagnoses">
+   </Tab>
+   <Tab text="Prescriptions">
       <content>
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <FlowPane>
+                  <children>
+                     <Button mnemonicParsing="false" text="Add Prescription">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" top="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#getPrescriptions" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </FlowPane>
+               <TitledPane text="Search Options">
+                  <content>
+                     <VBox>
+                        <children>
+                           <Label layoutX="20.0" layoutY="20.0" text="Search for prescription:" underline="true">
+                              <font>
+                                 <Font name="System Bold" size="13.0" />
+                              </font>
+                           </Label>
+                           <FlowPane>
+                              <children>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Prescription ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="20.0" layoutY="20.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Patient ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionPID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="First Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionFName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="214.0" layoutY="15.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Last Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionLName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Date:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <DatePicker fx:id="prescriptionDate" showWeekNumbers="false" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="283.0" layoutY="57.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Consultant:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionConsultant" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="262.0" layoutY="84.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Medication:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="prescriptionMeds" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                              </children>
+                           </FlowPane>
+                        </children>
+                     </VBox>
+                  </content>
+               </TitledPane>
+               <TableView fx:id="prescriptionTable">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TableView>
+            </children>
+         </VBox>
+      </content>
+   </Tab>
+   <Tab text="Consultations">
+      <content>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <FlowPane>
+                  <children>
+                     <Button mnemonicParsing="false" text="Add Consultation">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" top="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#getConsultations" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </FlowPane>
+               <TitledPane text="Search Options">
+                  <content>
+                     <VBox>
+                        <children>
+                           <Label layoutX="20.0" layoutY="20.0" text="Search for consultation:" underline="true">
+                              <font>
+                                 <Font name="System Bold" size="13.0" />
+                              </font>
+                           </Label>
+                           <FlowPane>
+                              <children>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Consultation ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="20.0" layoutY="20.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Patient ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationPID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="First Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationFName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="214.0" layoutY="15.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Last Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationLName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Date:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <DatePicker fx:id="consultationDate" showWeekNumbers="false" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="283.0" layoutY="57.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Consultant:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationConsultant" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="262.0" layoutY="84.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Location:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="consultationLocation" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                              </children>
+                           </FlowPane>
+                        </children>
+                     </VBox>
+                  </content>
+               </TitledPane>
+               <TableView fx:id="consultationTable">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TableView>
+            </children>
+         </VBox>
       </content>
    </Tab>
    <Tab text="Treatments">
       <content>
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <FlowPane>
+                  <children>
+                     <Button mnemonicParsing="false" text="Add Treatment">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" top="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#getTreatments" text="Search / Refresh">
+                        <FlowPane.margin>
+                           <Insets left="5.0" />
+                        </FlowPane.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </FlowPane>
+               <TitledPane text="Search Options">
+                  <content>
+                     <VBox>
+                        <children>
+                           <Label layoutX="20.0" layoutY="20.0" text="Search for treatment:" underline="true">
+                              <font>
+                                 <Font name="System Bold" size="13.0" />
+                              </font>
+                           </Label>
+                           <FlowPane>
+                              <children>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Treatment ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="20.0" layoutY="20.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Patient ID:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentPID" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="First Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentFName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="214.0" layoutY="15.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Last Name:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentLName" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox>
+                                    <children>
+                                       <Label prefHeight="27.0" text="Date:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <DatePicker fx:id="treatmentDate" showWeekNumbers="false" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="283.0" layoutY="57.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Consultant:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentConsultant" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                                 <HBox layoutX="262.0" layoutY="84.0">
+                                    <children>
+                                       <Label prefHeight="27.0" text="Treatment:">
+                                          <HBox.margin>
+                                             <Insets right="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <TextField fx:id="treatmentTreatment" />
+                                    </children>
+                                    <FlowPane.margin>
+                                       <Insets left="10.0" right="10.0" top="10.0" />
+                                    </FlowPane.margin>
+                                 </HBox>
+                              </children>
+                           </FlowPane>
+                        </children>
+                     </VBox>
+                  </content>
+               </TitledPane>
+               <TableView fx:id="treatmentTable">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TableView>
+            </children>
+         </VBox>
       </content>
    </Tab>
    <Tab text="Add Options">
