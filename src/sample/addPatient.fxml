@@ -40,43 +40,43 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="fName" GridPane.columnIndex="1" />
             <Label layoutX="184.0" layoutY="27.0" text="Last Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="260.0" layoutY="297.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="lName" layoutX="260.0" layoutY="297.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label layoutX="184.0" layoutY="27.0" text="Date of Birth:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <DatePicker prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dob" prefWidth="250.0" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label layoutX="185.0" layoutY="77.0" text="Address Line 1:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="260.0" layoutY="22.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addr1" layoutX="260.0" layoutY="22.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label layoutX="161.0" layoutY="177.0" text="Address Line 2:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="260.0" layoutY="172.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addr2" layoutX="260.0" layoutY="172.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label layoutX="161.0" layoutY="177.0" text="County:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="260.0" layoutY="172.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="county" layoutX="260.0" layoutY="172.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label layoutX="10.0" layoutY="27.0" text="Post Code:" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="10.0" layoutY="22.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="pCode" layoutX="10.0" layoutY="22.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label layoutX="161.0" layoutY="177.0" text="Contact Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="5.0" />
@@ -88,7 +88,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField layoutX="260.0" layoutY="222.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="nok" layoutX="260.0" layoutY="222.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <Label layoutX="207.0" layoutY="277.0" text="NoK Contact Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets right="5.0" />
@@ -100,7 +100,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefWidth="250.0" value="" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <ChoiceBox fx:id="risk" prefWidth="250.0" value="" GridPane.columnIndex="1" GridPane.rowIndex="10">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="Low" />

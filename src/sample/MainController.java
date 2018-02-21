@@ -96,10 +96,10 @@ public class MainController {
         updateConsultationSelectors();
         updatePrescriptionSelectors();
         getPatients();
+        getTreatments();
         getDiagnoses();
         getConsultations();
         getPrescriptions();
-        getTreatments();
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -191,7 +191,6 @@ public class MainController {
             if (where) {
                 sql += "AND ";
             } else {
-                where = true;
                 sql += "WHERE ";
             }
             sql += "Patients.dob = '" + dob + "' ";
@@ -284,7 +283,6 @@ public class MainController {
             if (where) {
                 sql += "AND ";
             } else {
-                where = true;
                 sql += "WHERE ";
             }
             sql += "Diagnoses.date = '" + date + "' ";
@@ -377,7 +375,6 @@ public class MainController {
             if (where) {
                 sql += "AND ";
             } else {
-                where = true;
                 sql += "WHERE ";
             }
             sql += "Prescriptions.date = '" + date + "' ";
@@ -398,7 +395,7 @@ public class MainController {
     }
 
     private String getConsultationsSQL() {
-        String sql = "SELECT Consultations.id, Consultations.patient_id, Patients.first_name, Patients.surname, Consultations.date, Consultations.time,  Consultants.consultant, `GP Practices`.name, Consultations.comment " +
+        String sql = "SELECT Consultations.id, Consultations.patient_id, Patients.first_name, Patients.surname, Consultations.date, Consultations.time,  Consultants.consultant, `GP Practices`.location, Consultations.comment " +
                 "FROM  Consultations " +
                 "INNER JOIN Patients ON Consultations.patient_id = Patients.id " +
                 "INNER JOIN `GP Practices` ON Consultations.location = `GP Practices`.id " +
@@ -464,13 +461,12 @@ public class MainController {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "`GP Practices`.name = '" + location + "' ";
+            sql += "`GP Practices`.location = '" + location + "' ";
         }
         if (!date.equals("")) {
             if (where) {
                 sql += "AND ";
             } else {
-                where = true;
                 sql += "WHERE ";
             }
             sql += "Consultations.date = '" + date + "' ";
@@ -564,7 +560,6 @@ public class MainController {
             if (where) {
                 sql += "AND ";
             } else {
-                where = true;
                 sql += "WHERE ";
             }
             sql += "Treatments.date_started = '" + date + "' ";
@@ -585,7 +580,7 @@ public class MainController {
         }
     }
 
-    public void updateTreatmentSelectors() {
+    private void updateTreatmentSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT treatment FROM Treatment");
@@ -618,14 +613,14 @@ public class MainController {
         }
     }
 
-    public void updateConsultationSelectors() {
+    private void updateConsultationSelectors() {
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT name FROM `GP Practices`");
+            ResultSet rs = stmt.executeQuery("SELECT location FROM `GP Practices`");
             ObservableList<String> locations = FXCollections.observableArrayList();
             locations.add("");
             while (rs.next()) {
-                locations.add(rs.getString("name"));
+                locations.add(rs.getString("location"));
             }
             consultationLocation.setItems(locations);
             consultationLocation.setValue("");
@@ -651,7 +646,7 @@ public class MainController {
         }
     }
 
-    public void updatePrescriptionSelectors() {
+    private void updatePrescriptionSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT medication FROM Medications");
@@ -684,7 +679,7 @@ public class MainController {
         }
     }
 
-    public void updateDiagnosisSelectors() {
+    private void updateDiagnosisSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `condition` FROM Conditions");
