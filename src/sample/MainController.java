@@ -5,18 +5,19 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
-import java.io.IOException;
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class MainController {
 
@@ -34,7 +35,19 @@ public class MainController {
     public CheckBox check_risk;
     public CheckBox check_comments;
     public TitledPane patientSPane;
-    public GridPane patientAddPane;
+
+    public VBox patientAddPane;
+    public TextField newPatientFName;
+    public TextField newPatientLName;
+    public DatePicker newPatientDOB;
+    public TextField newPatientAddr1;
+    public TextField newPatientAddr2;
+    public TextField newPatientCounty;
+    public TextField newPatientPCode;
+    public TextField newPatientNum;
+    public TextField newPatientNok;
+    public TextField newPatientNokNum;
+    public ChoiceBox<String> newPatientRisk;
 
     // Diagnoses Tab
     @FXML
@@ -46,6 +59,14 @@ public class MainController {
     public ChoiceBox<String> diagnosisConsultant;
     public ChoiceBox<String> diagnosisCondition;
     public DatePicker diagnosisDate;
+    public TitledPane diagnosisSPane;
+
+    public VBox diagnosisAddPane;
+    public ChoiceBox<String> newDiagnosisPID;
+    public ChoiceBox<String> newDiagnosisCondition;
+    public DatePicker newDiagnosisDate;
+    public ChoiceBox<String> newDiagnosisConsultant;
+    public TextArea newDiagnosisComment;
 
 
     // Prescriptions Tab
@@ -96,15 +117,30 @@ public class MainController {
 
     public void initialize() {
         updateTreatmentSelectors();
-        updateDiagnosisSelectors();
-        updateConsultationSelectors();
-        updatePrescriptionSelectors();
+        updateLocationSelectors();
+        updateConsultantSelectors();
+        updateConditionSelectors();
+        updateMedicationSelectors();
+        updatePatientSelectors();
+
         getPatients();
         getTreatments();
         getDiagnoses();
         getConsultations();
         getPrescriptions();
+
         patientAddPane.managedProperty().bind(patientAddPane.visibleProperty());
+        newPatientNum.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                newPatientNum.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        newPatientNokNum.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                newPatientNokNum.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        diagnosisAddPane.managedProperty().bind(diagnosisAddPane.visibleProperty());
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -585,6 +621,25 @@ public class MainController {
         }
     }
 
+    private void updatePatientSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT id, first_name, surname FROM Patients");
+            ObservableList<String> patients = FXCollections.observableArrayList();
+            patients.add("");
+            while (rs.next()) {
+                String name = rs.getString("id") + ": " + rs.getString("first_name") + " " + rs.getString("surname");
+                patients.add(name);
+            }
+            newDiagnosisPID.setItems(patients);
+            newDiagnosisPID.setValue("");
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
     private void updateTreatmentSelectors() {
         try {
             Statement stmt = conn.createStatement();
@@ -599,18 +654,6 @@ public class MainController {
             treatmentTreatment.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
-
-            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
-            ObservableList<String> consultants = FXCollections.observableArrayList();
-            consultants.add("");
-            while (rs.next()) {
-                consultants.add(rs.getString("consultant"));
-            }
-            treatmentConsultant.setItems(consultants);
-            treatmentConsultant.setValue("");
-            treatmentConsultant.getSelectionModel()
-                    .selectedItemProperty()
-                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -618,7 +661,7 @@ public class MainController {
         }
     }
 
-    private void updateConsultationSelectors() {
+    private void updateLocationSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT location FROM `GP Practices`");
@@ -632,8 +675,17 @@ public class MainController {
             consultationLocation.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
 
-            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
+    private void updateConsultantSelectors() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
             consultants.add("");
             while (rs.next()) {
@@ -644,6 +696,23 @@ public class MainController {
             consultationConsultant.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
+            prescriptionConsultant.setItems(consultants);
+            prescriptionConsultant.setValue("");
+            prescriptionConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
+            diagnosisConsultant.setItems(consultants);
+            diagnosisConsultant.setValue("");
+            diagnosisConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
+            treatmentConsultant.setItems(consultants);
+            treatmentConsultant.setValue("");
+            treatmentConsultant.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
+            newDiagnosisConsultant.setItems(consultants);
+            newDiagnosisConsultant.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -651,7 +720,7 @@ public class MainController {
         }
     }
 
-    private void updatePrescriptionSelectors() {
+    private void updateMedicationSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT medication FROM Medications");
@@ -665,18 +734,6 @@ public class MainController {
             prescriptionMeds.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
-
-            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
-            ObservableList<String> consultants = FXCollections.observableArrayList();
-            consultants.add("");
-            while (rs.next()) {
-                consultants.add(rs.getString("consultant"));
-            }
-            prescriptionConsultant.setItems(consultants);
-            prescriptionConsultant.setValue("");
-            prescriptionConsultant.getSelectionModel()
-                    .selectedItemProperty()
-                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -684,7 +741,7 @@ public class MainController {
         }
     }
 
-    private void updateDiagnosisSelectors() {
+    private void updateConditionSelectors() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `condition` FROM Conditions");
@@ -698,18 +755,8 @@ public class MainController {
             diagnosisCondition.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
-
-            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
-            ObservableList<String> consultants = FXCollections.observableArrayList();
-            consultants.add("");
-            while (rs.next()) {
-                consultants.add(rs.getString("consultant"));
-            }
-            diagnosisConsultant.setItems(consultants);
-            diagnosisConsultant.setValue("");
-            diagnosisConsultant.getSelectionModel()
-                    .selectedItemProperty()
-                    .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
+            newDiagnosisCondition.setItems(condition);
+            newDiagnosisCondition.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -775,15 +822,147 @@ public class MainController {
         getTreatments();
     }
 
-    public void addPatient() throws IOException {
-//        Stage stage = new Stage();
-//        Parent root = FXMLLoader.load(getClass().getResource("addPatient.fxml"));
-//        stage.setTitle("Add Patient");
-//        Scene scene = new Scene(root, 700, 700);
-//        scene.getStylesheets().add("sample/main.css");
-//        stage.setScene(scene);
-//        stage.show();
-    patientSPane.setExpanded(false);
-    patientAddPane.setVisible(true);
+    private String idFromConsultant(String consultantName) throws SQLException {
+        String sql = "SELECT id FROM Consultants WHERE consultant = '" + consultantName + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs.next()) {
+            return rs.getString("id");
+        } else {
+            return "NONE";
+        }
     }
+
+    private String idFromCondition(String conditionName) throws SQLException {
+        String sql = "SELECT id FROM Conditions WHERE `condition` = '" + conditionName + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs.next()) {
+            return rs.getString("id");
+        } else {
+            return "NONE";
+        }
+    }
+
+    public void addPatient() {
+        patientSPane.setExpanded(false);
+        patientAddPane.setVisible(true);
+    }
+
+    public void addDiagnosis() {
+        diagnosisSPane.setExpanded(false);
+        diagnosisAddPane.setVisible(true);
+    }
+
+    public void cancelPatient() {
+        patientAddPane.setVisible(false);
+        newPatientFName.clear();
+        newPatientLName.clear();
+        newPatientAddr1.clear();
+        newPatientAddr2.clear();
+        newPatientCounty.clear();
+        newPatientPCode.clear();
+        newPatientNum.clear();
+        newPatientNok.clear();
+        newPatientNokNum.clear();
+        newPatientRisk.setValue("");
+        newPatientDOB.setValue(null);
+    }
+
+    public void cancelDiagnosis() {
+        diagnosisAddPane.setVisible(false);
+        newDiagnosisPID.setValue("");
+        newDiagnosisPID.getStyleClass().remove("required");
+        newDiagnosisCondition.setValue("");
+        newDiagnosisCondition.getStyleClass().remove("required");
+        newDiagnosisConsultant.setValue("");
+        newDiagnosisConsultant.getStyleClass().remove("required");
+        newDiagnosisDate.setValue(null);
+        newDiagnosisComment.setText("");
+    }
+
+    public void submitPatient() {
+        String name = newPatientFName.getText();
+        String surname = newPatientLName.getText();
+        String addr1 = newPatientAddr1.getText();
+        String addr2 = newPatientAddr2.getText();
+        String county = newPatientCounty.getText();
+        String pCode = newPatientPCode.getText();
+        String num = newPatientNum.getText();
+        String nok = newPatientNok.getText();
+        String nokNum = newPatientNokNum.getText();
+        String risk = newPatientRisk.getValue();
+        LocalDate dobValue = newPatientDOB.getValue();
+        String dob = "0000-00-00";
+        if (dobValue != null) {
+            dob = dobValue.toString();
+        }
+
+        String sql = "INSERT INTO Patients (first_name, surname, dob, address1, address2, county, postcode, contact_number, next_of_kin, kin_number, risk) " +
+                "VALUES ('" + name + "', '" + surname + "', '" + dob + "', '" + addr1 + "', '" + addr2 + "', '" + county + "', '" + pCode + "', '" + num + "', '" + nok + "', '" + nokNum + "', '" + risk + "')";
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeQuery(sql);
+            getPatients();
+            cancelPatient();
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
+    public void submitDiagnosis() {
+        String id = newDiagnosisPID.getValue();
+        String condition = newDiagnosisCondition.getValue();
+        String consultant = newDiagnosisConsultant.getValue();
+        String comment = newDiagnosisComment.getText();
+        LocalDate localDate = newDiagnosisDate.getValue();
+
+        if (!id.equals("") && !condition.equals("") && !consultant.equals("")) {
+            try{
+                id = id.split(":")[0];
+                consultant = idFromConsultant(consultant);
+                condition = idFromCondition(condition);
+
+                String date;
+                if (localDate == null) {
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date current = new Date();
+                    date = dateFormat.format(current);
+                } else {
+                    date = localDate.toString();
+                }
+
+                String sql = "INSERT INTO Diagnoses (patient_id, `condition`, `date`, diagnostician, `comment`) " +
+                        "VALUES ('" + id + "', '" + condition + "', '" + date + "', '" + consultant + "', '" + comment + "')";
+
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+                getDiagnoses();
+                cancelDiagnosis();
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        } else {
+            if (id.equals("")) {
+                newDiagnosisPID.getStyleClass().add("required");
+            } else {
+                newDiagnosisPID.getStyleClass().remove("required");
+            }
+            if (condition.equals("")) {
+                newDiagnosisCondition.getStyleClass().add("required");
+            } else {
+                newDiagnosisCondition.getStyleClass().remove("required");
+            }
+            if (consultant.equals("")) {
+                newDiagnosisConsultant.getStyleClass().add("required");
+            } else {
+                newDiagnosisConsultant.getStyleClass().remove("required");
+            }
+        }
+    }
+
 }
