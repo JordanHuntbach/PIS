@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -31,6 +33,8 @@ public class MainController {
     public CheckBox check_nok_contact;
     public CheckBox check_risk;
     public CheckBox check_comments;
+    public TitledPane patientSPane;
+    public GridPane patientAddPane;
 
     // Diagnoses Tab
     @FXML
@@ -100,6 +104,7 @@ public class MainController {
         getDiagnoses();
         getConsultations();
         getPrescriptions();
+        patientAddPane.managedProperty().bind(patientAddPane.visibleProperty());
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -771,12 +776,14 @@ public class MainController {
     }
 
     public void addPatient() throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("addPatient.fxml"));
-        stage.setTitle("Add Patient");
-        Scene scene = new Scene(root, 700, 700);
-        scene.getStylesheets().add("sample/main.css");
-        stage.setScene(scene);
-        stage.show();
+//        Stage stage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("addPatient.fxml"));
+//        stage.setTitle("Add Patient");
+//        Scene scene = new Scene(root, 700, 700);
+//        scene.getStylesheets().add("sample/main.css");
+//        stage.setScene(scene);
+//        stage.show();
+    patientSPane.setExpanded(false);
+    patientAddPane.setVisible(true);
     }
 }

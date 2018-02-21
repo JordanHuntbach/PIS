@@ -16,7 +16,7 @@
 }
 
 .tab-pane, .tab-pane .tab:selected{     /* THIS IS THE SELECTED TAB */
-    -fx-background-color: #e6e6e6;
+    -fx-background-color: #ffffff;
 }
 
 .tab:selected .tab-label {              /* AND THIS IS ITS LABEL */

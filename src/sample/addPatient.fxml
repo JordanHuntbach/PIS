@@ -122,7 +122,7 @@
       <Pane prefWidth="125.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <Button alignment="CENTER" mnemonicParsing="false" prefWidth="500.0" text="Add Patient" BorderPane.alignment="CENTER">
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#submit" prefWidth="500.0" text="Add Patient" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </BorderPane.margin>
