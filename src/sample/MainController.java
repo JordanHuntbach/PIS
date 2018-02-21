@@ -5,13 +5,18 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class Controller {
+public class MainController {
 
     // Patients Tab
     @FXML
@@ -75,7 +80,7 @@ public class Controller {
 
     private Connection conn;
 
-    public Controller() {
+    public MainController() {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://mysql.dur.ac.uk/Pkdkj55_Patient_Monitoring?" + "user=kdkj55&password=nor74th");
         } catch (SQLException ex) {
@@ -83,6 +88,18 @@ public class Controller {
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
+    }
+
+    public void initialize() {
+        updateTreatmentSelectors();
+        updateDiagnosisSelectors();
+        updateConsultationSelectors();
+        updatePrescriptionSelectors();
+        getPatients();
+        getDiagnoses();
+        getConsultations();
+        getPrescriptions();
+        getTreatments();
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -159,7 +176,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.first_name = '" + fName + "' ";
+            sql += "Patients.first_name LIKE '" + fName + "%' ";
         }
         if (!lName.equals("")) {
             if (where) {
@@ -168,7 +185,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.surname = '" + lName + "' ";
+            sql += "Patients.surname LIKE '" + lName + "%' ";
         }
         if (!dob.equals("")) {
             if (where) {
@@ -195,7 +212,7 @@ public class Controller {
     }
 
     private String getDiagnosesSQL() {
-        String sql = "SELECT Diagnoses.id, Diagnoses.patient_id, Patients.first_name, Patients.surname, Diagnoses.date, Conditions.condition, Consultants.name, Diagnoses.comment " +
+        String sql = "SELECT Diagnoses.id, Diagnoses.patient_id, Patients.first_name, Patients.surname, Diagnoses.date, Conditions.condition, Consultants.consultant, Diagnoses.comment " +
                 "FROM Diagnoses " +
                 "INNER JOIN Patients ON Diagnoses.patient_id = Patients.id " +
                 "INNER JOIN Conditions ON Diagnoses.condition = Conditions.id " +
@@ -234,7 +251,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.first_name = '" + fName + "' ";
+            sql += "Patients.first_name LIKE '" + fName + "%' ";
         }
         if (!lName.equals("")) {
             if (where) {
@@ -243,7 +260,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.surname = '" + lName + "' ";
+            sql += "Patients.surname LIKE '" + lName + "%' ";
         }
         if (!consultant.equals("")) {
             if (where) {
@@ -252,7 +269,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Consultants.name = '" + consultant + "' ";
+            sql += "Consultants.consultant = '" + consultant + "' ";
         }
         if (!condition.equals("")) {
             if (where) {
@@ -288,7 +305,7 @@ public class Controller {
     }
 
     private String getPrescriptionsSQL() {
-        String sql = "SELECT Prescriptions.id, Prescriptions.patient_id, Patients.first_name, Patients.surname, Prescriptions.date, Medications.medication, Consultants.name, Prescriptions.comment " +
+        String sql = "SELECT Prescriptions.id, Prescriptions.patient_id, Patients.first_name, Patients.surname, Prescriptions.date, Medications.medication, Consultants.consultant, Prescriptions.comment " +
                 "FROM Prescriptions " +
                 "INNER JOIN Patients ON Prescriptions.patient_id = Patients.id " +
                 "INNER JOIN Medications ON Prescriptions.medication = Medications.id " +
@@ -327,7 +344,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.first_name = '" + fName + "' ";
+            sql += "Patients.first_name LIKE '" + fName + "%' ";
         }
         if (!lName.equals("")) {
             if (where) {
@@ -336,7 +353,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.surname = '" + lName + "' ";
+            sql += "Patients.surname LIKE '" + lName + "%' ";
         }
         if (!consultant.equals("")) {
             if (where) {
@@ -345,7 +362,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Consultants.name = '" + consultant + "' ";
+            sql += "Consultants.consultant = '" + consultant + "' ";
         }
         if (!medication.equals("")) {
             if (where) {
@@ -381,7 +398,7 @@ public class Controller {
     }
 
     private String getConsultationsSQL() {
-        String sql = "SELECT Consultations.id, Consultations.patient_id, Patients.first_name, Patients.surname, Consultations.date, Consultations.time,  Consultants.name, `GP Practices`.name, Consultations.comment " +
+        String sql = "SELECT Consultations.id, Consultations.patient_id, Patients.first_name, Patients.surname, Consultations.date, Consultations.time,  Consultants.consultant, `GP Practices`.name, Consultations.comment " +
                 "FROM  Consultations " +
                 "INNER JOIN Patients ON Consultations.patient_id = Patients.id " +
                 "INNER JOIN `GP Practices` ON Consultations.location = `GP Practices`.id " +
@@ -420,7 +437,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.first_name = '" + fName + "' ";
+            sql += "Patients.first_name LIKE '" + fName + "%' ";
         }
         if (!lName.equals("")) {
             if (where) {
@@ -429,7 +446,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.surname = '" + lName + "' ";
+            sql += "Patients.surname LIKE '" + lName + "%' ";
         }
         if (!consultant.equals("")) {
             if (where) {
@@ -438,7 +455,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Consultants.name = '" + consultant + "' ";
+            sql += "Consultants.consultant = '" + consultant + "' ";
         }
         if (!location.equals("")) {
             if (where) {
@@ -475,7 +492,7 @@ public class Controller {
     }
 
     private String getTreatmentsSQL() {
-        String sql = "SELECT Treatments.id, Treatments.patient_id, Patients.first_name, Patients.surname, Treatment.treatment, Treatments.date_started, Consultants.name, Treatments.comment " +
+        String sql = "SELECT Treatments.id, Treatments.patient_id, Patients.first_name, Patients.surname, Treatment.treatment, Treatments.date_started, Consultants.consultant, Treatments.comment " +
                 "FROM  Treatments " +
                 "INNER JOIN Patients ON Treatments.patient_id = Patients.id " +
                 "INNER JOIN Treatment ON Treatments.treatment = Treatment.id " +
@@ -514,7 +531,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.first_name = '" + fName + "' ";
+            sql += "Patients.first_name LIKE '" + fName + "%' ";
         }
         if (!lName.equals("")) {
             if (where) {
@@ -523,7 +540,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Patients.surname = '" + lName + "' ";
+            sql += "Patients.surname LIKE '" + lName + "%' ";
         }
         if (!consultant.equals("")) {
             if (where) {
@@ -532,7 +549,7 @@ public class Controller {
                 where = true;
                 sql += "WHERE ";
             }
-            sql += "Consultants.name = '" + consultant + "' ";
+            sql += "Consultants.consultant = '" + consultant + "' ";
         }
         if (!treatment.equals("")) {
             if (where) {
@@ -583,11 +600,11 @@ public class Controller {
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
 
-            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
             consultants.add("");
             while (rs.next()) {
-                consultants.add(rs.getString("name"));
+                consultants.add(rs.getString("consultant"));
             }
             treatmentConsultant.setItems(consultants);
             treatmentConsultant.setValue("");
@@ -616,11 +633,11 @@ public class Controller {
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
 
-            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
             consultants.add("");
             while (rs.next()) {
-                consultants.add(rs.getString("name"));
+                consultants.add(rs.getString("consultant"));
             }
             consultationConsultant.setItems(consultants);
             consultationConsultant.setValue("");
@@ -649,11 +666,11 @@ public class Controller {
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
 
-            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
             consultants.add("");
             while (rs.next()) {
-                consultants.add(rs.getString("name"));
+                consultants.add(rs.getString("consultant"));
             }
             prescriptionConsultant.setItems(consultants);
             prescriptionConsultant.setValue("");
@@ -682,11 +699,11 @@ public class Controller {
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
 
-            rs = stmt.executeQuery("SELECT name FROM Consultants");
+            rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
             consultants.add("");
             while (rs.next()) {
-                consultants.add(rs.getString("name"));
+                consultants.add(rs.getString("consultant"));
             }
             diagnosisConsultant.setItems(consultants);
             diagnosisConsultant.setValue("");
@@ -711,6 +728,7 @@ public class Controller {
         patientFirstName.clear();
         patientLastName.clear();
         patientDOB.setValue(null);
+        getPatients();
     }
 
     public void clearDiagnoses() {
@@ -721,6 +739,7 @@ public class Controller {
         diagnosisDate.setValue(null);
         diagnosisCondition.setValue("");
         diagnosisConsultant.setValue("");
+        getDiagnoses();
     }
 
     public void clearPrescriptions() {
@@ -731,6 +750,7 @@ public class Controller {
         prescriptionDate.setValue(null);
         prescriptionConsultant.setValue("");
         prescriptionMeds.setValue("");
+        getPrescriptions();
     }
 
     public void clearConsultations() {
@@ -741,6 +761,7 @@ public class Controller {
         consultationDate.setValue(null);
         consultationConsultant.setValue("");
         consultationLocation.setValue("");
+        getConsultations();
     }
 
     public void clearTreatments() {
@@ -751,5 +772,16 @@ public class Controller {
         treatmentDate.setValue(null);
         treatmentConsultant.setValue("");
         treatmentTreatment.setValue("");
+        getTreatments();
+    }
+
+    public void addPatient() throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("addPatient.fxml"));
+        stage.setTitle("Add Patient");
+        Scene scene = new Scene(root, 700, 700);
+        scene.getStylesheets().add("sample/main.css");
+        stage.setScene(scene);
+        stage.show();
     }
 }

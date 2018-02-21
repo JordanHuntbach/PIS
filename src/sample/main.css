@@ -6,8 +6,13 @@
     -fx-background-insets: 0 1 0 1,0,0;
 }
 
+.tab {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
 .tab-pane .tab{
-    -fx-background-color: #C6C6C6;
+    -fx-background-color: #bebebe;
 }
 
 .tab-pane, .tab-pane .tab:selected{     /* THIS IS THE SELECTED TAB */
@@ -15,7 +20,7 @@
 }
 
 .tab:selected .tab-label {              /* AND THIS IS ITS LABEL */
-    -fx-text-fill: #96b946;
+    -fx-text-fill: #0b770f;
 }
 
 .tab .tab-label {                       /* THIS IS EVERY OTHER LABEL */
