@@ -188,8 +188,8 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="303" column="88" lean-forward="false" selection-start-line="303" selection-start-column="88" selection-end-line="303" selection-end-column="88" />
+            <state relative-caret-position="285">
+              <caret line="233" column="52" lean-forward="true" selection-start-line="233" selection-start-column="52" selection-end-line="233" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MainController#0;class#MainController#0" expanded="false" />
@@ -247,27 +247,7 @@
                 <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
                 <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
                 <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-                <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-                <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-                <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-                <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-                <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-                <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-                <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-                <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-                <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-                <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-                <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-                <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-                <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-                <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-                <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-                <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-                <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-                <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-                <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-                <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-                <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+                <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
               </folding>
             </state>
           </provider>
@@ -275,11 +255,11 @@
       </file>
       <file leaf-file-name="patients.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="-346">
               <caret line="1277" column="71" lean-forward="false" selection-start-line="1277" selection-start-column="71" selection-end-line="1277" selection-end-column="71" />
               <folding />
             </state>
@@ -676,7 +656,7 @@
       <workItem from="1519228043682" duration="11078000" />
       <workItem from="1519246415432" duration="1060000" />
       <workItem from="1519293523375" duration="10309000" />
-      <workItem from="1519305481430" duration="5970000" />
+      <workItem from="1519305481430" duration="6331000" />
     </task>
     <task id="LOCAL-00001" summary="Removed old files.">
       <created>1519121341095</created>
@@ -741,11 +721,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519300674908</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Delete / edit information in final tab.">
+      <created>1519312299727</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1519312299727</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44032000" />
+    <option name="totallyTimeSpent" value="44393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -829,7 +816,8 @@
     <MESSAGE value="Diagnosis in and validated." />
     <MESSAGE value="Add prescription." />
     <MESSAGE value="Add consultations and treatments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add consultations and treatments." />
+    <MESSAGE value="Delete / edit information in final tab." />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete / edit information in final tab." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -923,27 +911,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1053,27 +1021,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1159,27 +1107,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1268,27 +1196,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1385,27 +1293,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1511,27 +1399,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1632,27 +1500,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>
@@ -1773,11 +1621,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-346">
           <caret line="1277" column="71" lean-forward="false" selection-start-line="1277" selection-start-column="71" selection-end-line="1277" selection-end-column="71" />
           <folding />
         </state>
@@ -1785,8 +1633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="303" column="88" lean-forward="false" selection-start-line="303" selection-start-column="88" selection-end-line="303" selection-end-column="88" />
+        <state relative-caret-position="285">
+          <caret line="233" column="52" lean-forward="true" selection-start-line="233" selection-start-column="52" selection-end-line="233" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
@@ -1844,27 +1692,7 @@
             <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
             <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
             <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
-            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
-            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
-            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
-            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
-            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
-            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
-            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
-            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
-            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
-            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
-            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
-            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
-            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
-            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
-            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
+            <marker date="1519312586831" expanded="true" signature="34218:34252" ph="SELECT medic... Medications" />
           </folding>
         </state>
       </provider>

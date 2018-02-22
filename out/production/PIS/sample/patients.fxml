@@ -289,7 +289,7 @@
                </VBox>
             </content>
          </TitledPane>
-         <TableView fx:id="patientsTable">
+         <TableView fx:id="patientsTable" editable="true">
             <VBox.margin>
                <Insets />
             </VBox.margin>

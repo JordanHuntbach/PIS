@@ -302,6 +302,7 @@ public class MainController {
             //We are using non property style for making dynamic table
             final int j = i;
             TableColumn col = new TableColumn(results.getMetaData().getColumnName(i+1));
+            col.setEditable(true);
             col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
             table.getColumns().addAll(col);
             System.out.println("Created column ["+i+"] ");
