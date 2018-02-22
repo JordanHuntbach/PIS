@@ -279,8 +279,11 @@ public class MainController {
     }
 
     private void updateCell(String table, String rowID, String column, String newValue) {
-        String capitalised = newValue.substring(0, 1).toUpperCase() + newValue.substring(1);
-        if (column.equals("dob") && !newValue.matches("\\d{4}-\\d{2}-\\d{2}")) {
+        String capitalised = "";
+        if (newValue.length() >= 1) {
+           capitalised = newValue.substring(0, 1).toUpperCase() + newValue.substring(1);
+        }
+        if ((column.equals("dob") || column.equals("date") || column.equals("date_started")) && !newValue.matches("\\d{4}-\\d{2}-\\d{2}")) {
             // Invalid date.
         } else if (column.equals("postcode") && newValue.length() > 8) {
             // Invalid postcode.
@@ -288,6 +291,76 @@ public class MainController {
             // Invalid phone number - regex courtesy of http://regexlib.com/UserPatterns.aspx?authorid=d95177b0-6014-4e73-a959-73f1663ae814&AspxAutoDetectCookieSupport=1
         } else if (column.equals("risk") && !(capitalised.equals("Low") || capitalised.equals("Medium") || capitalised.equals("High"))) {
             // Invalid risk
+        } else if (column.equals("time") && !newValue.matches("([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?")) {
+            // Invalid time
+        } else if (column.equals("consultant") || column.equals("treatment") || column.equals("condition") || column.equals("location") || column.equals("medication")) {
+            // Need to lookup the id of the new value.
+            String lookupTable;
+            String id;
+            try {
+                switch (column) {
+                    case "consultant":
+                        lookupTable = "Consultants";
+                        id = idFromConsultant(newValue);
+                        break;
+                    case "treatment":
+                        lookupTable = "Treatment";
+                        id = idFromTreatment(newValue);
+                        break;
+                    case "condition":
+                        lookupTable = "Conditions";
+                        id = idFromCondition(newValue);
+                        break;
+                    case "location":
+                        lookupTable = "GP Practices";
+                        id = idFromLocation(newValue);
+                        break;
+                    default:
+                        lookupTable = "Medications";
+                        id = idFromMedication(newValue);
+                        break;
+                }
+                if(id.equals("NONE")) {
+                    String sql = "INSERT INTO `" + lookupTable + "` (`" + column + "`) VALUES ('" + newValue + "')";
+                    runSQL(sql);
+                    switch (column) {
+                        case "consultant":
+                            id = idFromConsultant(newValue);
+                            break;
+                        case "treatment":
+                            id = idFromTreatment(newValue);
+                            break;
+                        case "condition":
+                            id = idFromCondition(newValue);
+                            break;
+                        case "location":
+                            id = idFromLocation(newValue);
+                            break;
+                        default:
+                            id = idFromMedication(newValue);
+                            break;
+                    }
+                }
+                if (column.equals("consultant")) {
+                    switch (table) {
+                        case "Prescriptions":
+                            column = "prescriber";
+                            break;
+                        case "Diagnoses":
+                            column = "diagnostician";
+                            break;
+                        default:
+                            column = "consultant";
+                            break;
+                    }
+                }
+                newValue = id;
+                String sql = "UPDATE `" + table + "` SET `" + column + "` = '" + newValue + "' WHERE `id` = '" + rowID + "'";
+                runSQL(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         } else {
             // Valid change.
             String sql = "UPDATE `" + table + "` SET `" + column + "` = '" + newValue + "' WHERE `id` = '" + rowID + "'";
@@ -314,13 +387,17 @@ public class MainController {
         ObservableList<ObservableList> data = FXCollections.observableArrayList();
 
         // TABLE COLUMN ADDED DYNAMICALLY
+        int exclude = 0;
         table.getColumns().clear();
         for(int i=0 ; i<results.getMetaData().getColumnCount(); i++){
             //We are using non property style for making dynamic table
             final int j = i;
             String columnName = results.getMetaData().getColumnName(i + 1);
             TableColumn col = new TableColumn(columnName);
-            if (i != 0) {
+            if (i == 1 && columnName.equals("patient_id")) {
+                exclude = 3;
+            }
+            if (i > exclude) {
                 col.setCellFactory(TextFieldTableCell.forTableColumn());
                 EventHandler<TableColumn.CellEditEvent<ObservableList,String>> handler = event -> {
                     // Need the new value, the id of the row, the name of the column, and the table to update.
