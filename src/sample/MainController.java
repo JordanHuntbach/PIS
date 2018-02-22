@@ -99,6 +99,16 @@ public class MainController {
     public DatePicker consultationDate;
     public ChoiceBox<String> consultationConsultant;
     public ChoiceBox<String> consultationLocation;
+    public TitledPane consultationSPane;
+
+    public VBox consultationAddPane;
+    public ChoiceBox<String> newConsultationPID;
+    public ChoiceBox<String> newConsultationLocation;
+    public DatePicker newConsultationDate;
+    public ChoiceBox<String> newConsultationConsultant;
+    public ChoiceBox<String> newConsultationHour;
+    public ChoiceBox<String> newConsultationMinute;
+    public TextArea newConsultationComment;
 
     // Treatments Tab
     @FXML
@@ -110,6 +120,16 @@ public class MainController {
     public DatePicker treatmentDate;
     public ChoiceBox<String> treatmentConsultant;
     public ChoiceBox<String> treatmentTreatment;
+    public TitledPane treatmentSPane;
+
+    public VBox treatmentAddPane;
+    public ChoiceBox<String> newTreatmentPID;
+    public ChoiceBox<String> newTreatmentTreatment;
+    public DatePicker newTreatmentDate;
+    public ChoiceBox<String> newTreatmentConsultant;
+    public TextArea newTreatmentComment;
+
+
 
     private Connection conn;
 
@@ -150,6 +170,11 @@ public class MainController {
         });
         diagnosisAddPane.managedProperty().bind(diagnosisAddPane.visibleProperty());
         prescriptionAddPane.managedProperty().bind(prescriptionAddPane.visibleProperty());
+        consultationAddPane.managedProperty().bind(consultationAddPane.visibleProperty());
+        treatmentAddPane.managedProperty().bind(treatmentAddPane.visibleProperty());
+
+        newConsultationHour.setValue("");
+        newConsultationMinute.setValue("");
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -644,6 +669,10 @@ public class MainController {
             newDiagnosisPID.setValue("");
             newPrescriptionPID.setItems(patients);
             newPrescriptionPID.setValue("");
+            newConsultationPID.setItems(patients);
+            newConsultationPID.setValue("");
+            newTreatmentPID.setItems(patients);
+            newTreatmentPID.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -665,6 +694,8 @@ public class MainController {
             treatmentTreatment.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
+            newTreatmentTreatment.setItems(treatments);
+            newTreatmentTreatment.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -686,6 +717,8 @@ public class MainController {
             consultationLocation.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getConsultations());
+            newConsultationLocation.setItems(locations);
+            newConsultationLocation.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -726,6 +759,10 @@ public class MainController {
             newDiagnosisConsultant.setValue("");
             newPrescriptionConsultant.setItems(consultants);
             newPrescriptionConsultant.setValue("");
+            newConsultationConsultant.setItems(consultants);
+            newConsultationConsultant.setValue("");
+            newTreatmentConsultant.setItems(consultants);
+            newTreatmentConsultant.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -870,6 +907,28 @@ public class MainController {
         }
     }
 
+    private String idFromLocation(String locationName) throws SQLException {
+        String sql = "SELECT id FROM `GP Practices` WHERE location = '" + locationName + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs.next()) {
+            return rs.getString("id");
+        } else {
+            return "NONE";
+        }
+    }
+
+    private String idFromTreatment(String treatmentName) throws SQLException {
+        String sql = "SELECT id FROM Treatment WHERE treatment = '" + treatmentName + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs.next()) {
+            return rs.getString("id");
+        } else {
+            return "NONE";
+        }
+    }
+
     public void addPatient() {
         patientSPane.setExpanded(false);
         patientAddPane.setVisible(true);
@@ -885,6 +944,16 @@ public class MainController {
         prescriptionAddPane.setVisible(true);
     }
 
+    public void addConsultation() {
+        consultationSPane.setExpanded(false);
+        consultationAddPane.setVisible(true);
+    }
+
+    public void addTreatment() {
+        treatmentSPane.setExpanded(false);
+        treatmentAddPane.setVisible(true);
+    }
+
     public void cancelPatient() {
         patientAddPane.setVisible(false);
         newPatientFName.clear();
@@ -898,6 +967,11 @@ public class MainController {
         newPatientNokNum.clear();
         newPatientRisk.setValue("");
         newPatientDOB.setValue(null);
+
+        newPatientFName.getStyleClass().remove("required");
+        newPatientLName.getStyleClass().remove("required");
+        newPatientRisk.getStyleClass().remove("required");
+        newPatientDOB.getStyleClass().remove("required");
     }
 
     public void cancelDiagnosis() {
@@ -924,6 +998,35 @@ public class MainController {
         newPrescriptionComment.setText("");
     }
 
+    public void cancelConsultation() {
+        consultationAddPane.setVisible(false);
+        newConsultationPID.setValue("");
+        newConsultationPID.getStyleClass().remove("required");
+        newConsultationLocation.setValue("");
+        newConsultationLocation.getStyleClass().remove("required");
+        newConsultationConsultant.setValue("");
+        newConsultationConsultant.getStyleClass().remove("required");
+        newConsultationDate.setValue(null);
+        newConsultationDate.getStyleClass().remove("required");
+        newConsultationComment.setText("");
+        newConsultationHour.setValue("");
+        newConsultationHour.getStyleClass().remove("required");
+        newConsultationMinute.setValue("");
+        newConsultationMinute.getStyleClass().remove("required");
+    }
+
+    public void cancelTreatment() {
+        treatmentAddPane.setVisible(false);
+        newTreatmentPID.setValue("");
+        newTreatmentPID.getStyleClass().remove("required");
+        newTreatmentTreatment.setValue("");
+        newTreatmentTreatment.getStyleClass().remove("required");
+        newTreatmentConsultant.setValue("");
+        newTreatmentConsultant.getStyleClass().remove("required");
+        newTreatmentDate.setValue(null);
+        newTreatmentComment.setText("");
+    }
+
     public void submitPatient() {
         String name = newPatientFName.getText();
         String surname = newPatientLName.getText();
@@ -936,22 +1039,40 @@ public class MainController {
         String nokNum = newPatientNokNum.getText();
         String risk = newPatientRisk.getValue();
         LocalDate dobValue = newPatientDOB.getValue();
-        String dob = "0000-00-00";
-        if (dobValue != null) {
-            dob = dobValue.toString();
-        }
 
-        String sql = "INSERT INTO Patients (first_name, surname, dob, address1, address2, county, postcode, contact_number, next_of_kin, kin_number, risk) " +
-                "VALUES ('" + name + "', '" + surname + "', '" + dob + "', '" + addr1 + "', '" + addr2 + "', '" + county + "', '" + pCode + "', '" + num + "', '" + nok + "', '" + nokNum + "', '" + risk + "')";
-        try {
-            Statement stmt = conn.createStatement();
-            stmt.executeQuery(sql);
-            getPatients();
-            cancelPatient();
-        } catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
+        if (!name.equals("") && !surname.equals("") && !risk.equals("") && (dobValue != null)) {
+            String dob = dobValue.toString();
+
+
+            String sql = "INSERT INTO Patients (first_name, surname, dob, address1, address2, county, postcode, contact_number, next_of_kin, kin_number, risk) " +
+                    "VALUES ('" + name + "', '" + surname + "', '" + dob + "', '" + addr1 + "', '" + addr2 + "', '" + county + "', '" + pCode + "', '" + num + "', '" + nok + "', '" + nokNum + "', '" + risk + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+                getPatients();
+                cancelPatient();
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        } else {
+            newPatientFName.getStyleClass().remove("required");
+            newPatientLName.getStyleClass().remove("required");
+            newPatientRisk.getStyleClass().remove("required");
+            newPatientDOB.getStyleClass().remove("required");
+            if (name.equals("")) {
+                newPatientFName.getStyleClass().add("required");
+            }
+            if (surname.equals("")) {
+                newPatientLName.getStyleClass().add("required");
+            }
+            if (risk.equals("")) {
+                newPatientRisk.getStyleClass().add("required");
+            }
+            if (dobValue == null) {
+                newPatientDOB.getStyleClass().add("required");
+            }
         }
     }
 
@@ -1051,6 +1172,113 @@ public class MainController {
             }
             if (consultant.equals("")) {
                 newPrescriptionConsultant.getStyleClass().add("required");
+            }
+        }
+    }
+
+    public void submitConsultation() {
+        String id = newConsultationPID.getValue();
+        String location = newConsultationLocation.getValue();
+        String consultant = newConsultationConsultant.getValue();
+        String comment = newConsultationComment.getText();
+        LocalDate localDate = newConsultationDate.getValue();
+        String hour = newConsultationHour.getValue();
+        String minute = newConsultationMinute.getValue();
+
+        if (!id.equals("") && !location.equals("") && !consultant.equals("") && !hour.equals("") && !minute.equals("") && (localDate != null)) {
+            try{
+                id = id.split(":")[0];
+                consultant = idFromConsultant(consultant);
+                location = idFromLocation(location);
+                String date = localDate.toString();
+                String time = hour + ":" + minute + ":00";
+
+                String sql = "INSERT INTO Consultations (patient_id, location, `date`, consultant, `time`, `comment`) " +
+                        "VALUES ('" + id + "', '" + location + "', '" + date + "', '" + consultant + "', '" + time + "', '" + comment + "')";
+
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+                getConsultations();
+                cancelConsultation();
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        } else {
+            newConsultationPID.getStyleClass().remove("required");
+            newConsultationLocation.getStyleClass().remove("required");
+            newConsultationConsultant.getStyleClass().remove("required");
+            newConsultationDate.getStyleClass().remove("required");
+            newConsultationHour.getStyleClass().remove("required");
+            newConsultationMinute.getStyleClass().remove("required");
+            if (id.equals("")) {
+                newConsultationPID.getStyleClass().add("required");
+            }
+            if (location.equals("")) {
+                newConsultationLocation.getStyleClass().add("required");
+            }
+            if (consultant.equals("")) {
+                newConsultationConsultant.getStyleClass().add("required");
+            }
+            if (hour.equals("")) {
+                newConsultationHour.getStyleClass().add("required");
+            }
+            if (minute.equals("")) {
+                newConsultationMinute.getStyleClass().add("required");
+            }
+            if (localDate == null) {
+                newConsultationDate.getStyleClass().add("required");
+            }
+        }
+    }
+
+    public void submitTreatment() {
+        String id = newTreatmentPID.getValue();
+        String treatment = newTreatmentTreatment.getValue();
+        String consultant = newTreatmentConsultant.getValue();
+        String comment = newTreatmentComment.getText();
+        LocalDate localDate = newTreatmentDate.getValue();
+
+        if (!id.equals("") && !treatment.equals("") && !consultant.equals("")) {
+            try{
+                id = id.split(":")[0];
+                consultant = idFromConsultant(consultant);
+                treatment = idFromTreatment(treatment);
+
+                String date;
+                if (localDate == null) {
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date current = new Date();
+                    date = dateFormat.format(current);
+                } else {
+                    date = localDate.toString();
+                }
+
+                String sql = "INSERT INTO Treatments (patient_id, treatment, date_started, consultant, `comment`) " +
+                        "VALUES ('" + id + "', '" + treatment + "', '" + date + "', '" + consultant + "', '" + comment + "')";
+
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+                getTreatments();
+                cancelTreatment();
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        } else {
+            newTreatmentPID.getStyleClass().remove("required");
+            newTreatmentTreatment.getStyleClass().remove("required");
+            newTreatmentConsultant.getStyleClass().remove("required");
+            if (id.equals("")) {
+                newTreatmentPID.getStyleClass().add("required");
+            }
+            if (treatment.equals("")) {
+                newTreatmentTreatment.getStyleClass().add("required");
+            }
+            if (consultant.equals("")) {
+                newTreatmentConsultant.getStyleClass().add("required");
             }
         }
     }

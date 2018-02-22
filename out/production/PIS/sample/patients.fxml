@@ -92,7 +92,7 @@
                      </Label>
                      <TextField fx:id="newPatientFName" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      <TextField fx:id="newPatientLName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     <DatePicker fx:id="newPatientDOB" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <DatePicker fx:id="newPatientDOB" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
                      <Label text="Address 1:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                         <GridPane.margin>
                            <Insets right="5.0" />
@@ -361,7 +361,7 @@
                                 </Label>
                                 <ChoiceBox fx:id="newDiagnosisPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <ChoiceBox fx:id="newDiagnosisCondition" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <DatePicker fx:id="newDiagnosisDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <DatePicker fx:id="newDiagnosisDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
                                 <Label text="Diagnositcian:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                     <GridPane.margin>
                                         <Insets right="5.0" />
@@ -529,7 +529,7 @@
             <children>
                <FlowPane>
                   <children>
-                     <Button mnemonicParsing="false" text="Add Prescription">
+                     <Button mnemonicParsing="false" onAction="#addPrescription" text="Add Prescription">
                         <FlowPane.margin>
                            <Insets bottom="5.0" left="5.0" top="5.0" />
                         </FlowPane.margin>
@@ -549,7 +549,89 @@
                      <Insets />
                   </VBox.margin>
                </FlowPane>
-               <TitledPane expanded="false" text="Search Options">
+               <VBox fx:id="prescriptionAddPane" styleClass="add-pane" visible="false">
+                  <children>
+                     <GridPane>
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                           <Label alignment="TOP_CENTER" text="Add Prescription" underline="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label text="Patient:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <Label layoutX="10.0" layoutY="27.0" text="Medication:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <Label text="Date:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <ChoiceBox fx:id="newPrescriptionPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <ChoiceBox fx:id="newPrescriptionMedication" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <DatePicker fx:id="newPrescriptionDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                           <Label text="Prescriber:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <Label text="Comment:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <ChoiceBox fx:id="newPrescriptionConsultant" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" />
+                           <TextArea fx:id="newPrescriptionComment" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </GridPane>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <Button alignment="CENTER" mnemonicParsing="false" onAction="#cancelPrescription" prefWidth="200.0" text="Cancel">
+                              <HBox.margin>
+                                 <Insets left="10.0" right="10.0" />
+                              </HBox.margin>
+                           </Button>
+                           <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitPrescription" prefWidth="200.0" text="Confirm">
+                              <HBox.margin>
+                                 <Insets left="10.0" right="10.0" />
+                              </HBox.margin>
+                           </Button>
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="15.0" />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                  </VBox.margin>
+               </VBox>
+               <TitledPane fx:id="prescriptionSPane" expanded="false" text="Search Options">
                   <content>
                      <VBox>
                         <children>
@@ -672,7 +754,7 @@
             <children>
                <FlowPane>
                   <children>
-                     <Button mnemonicParsing="false" text="Add Consultation">
+                     <Button mnemonicParsing="false" onAction="#addConsultation" text="Add Consultation">
                         <FlowPane.margin>
                            <Insets bottom="5.0" left="5.0" top="5.0" />
                         </FlowPane.margin>
@@ -692,7 +774,153 @@
                      <Insets />
                   </VBox.margin>
                </FlowPane>
-               <TitledPane expanded="false" text="Search Options">
+                <VBox fx:id="consultationAddPane" styleClass="add-pane" visible="false">
+                    <children>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="TOP_CENTER" text="Add Consultation" underline="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Patient:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label layoutX="10.0" layoutY="27.0" text="Location:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Date:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <ChoiceBox fx:id="newConsultationPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <ChoiceBox fx:id="newConsultationLocation" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <DatePicker fx:id="newConsultationDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                                <Label text="Time:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Comment:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <TextArea fx:id="newConsultationComment" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
+                           <Label layoutX="44.0" layoutY="113.0" text="Consultant:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                 <Insets right="5.0" />
+                              </GridPane.margin>
+                           </Label>
+                           <ChoiceBox fx:id="newConsultationConsultant" layoutX="579.0" layoutY="21.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                           <HBox GridPane.columnIndex="4">
+                              <children>
+                                  <ChoiceBox fx:id="newConsultationHour" maxWidth="1.7976931348623157E308">
+                                      <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                              <String fx:value="" />
+                                              <String fx:value="00" />
+                                              <String fx:value="01" />
+                                              <String fx:value="02" />
+                                              <String fx:value="03" />
+                                              <String fx:value="04" />
+                                              <String fx:value="05" />
+                                              <String fx:value="06" />
+                                              <String fx:value="07" />
+                                              <String fx:value="08" />
+                                              <String fx:value="09" />
+                                              <String fx:value="10" />
+                                              <String fx:value="11" />
+                                              <String fx:value="12" />
+                                              <String fx:value="13" />
+                                              <String fx:value="14" />
+                                              <String fx:value="15" />
+                                              <String fx:value="16" />
+                                              <String fx:value="17" />
+                                              <String fx:value="18" />
+                                              <String fx:value="19" />
+                                              <String fx:value="20" />
+                                              <String fx:value="21" />
+                                              <String fx:value="22" />
+                                              <String fx:value="23" />
+                                          </FXCollections>
+                                      </items>
+                                  </ChoiceBox>
+                                  <Label alignment="CENTER" text=":">
+                                    <HBox.margin>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </HBox.margin>
+                                 </Label>
+                                  <ChoiceBox fx:id="newConsultationMinute" layoutY="10.0" maxWidth="1.7976931348623157E308">
+                                      <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                              <String fx:value="" />
+                                              <String fx:value="00" />
+                                              <String fx:value="05" />
+                                              <String fx:value="10" />
+                                              <String fx:value="15" />
+                                              <String fx:value="20" />
+                                              <String fx:value="25" />
+                                              <String fx:value="30" />
+                                              <String fx:value="35" />
+                                              <String fx:value="40" />
+                                              <String fx:value="45" />
+                                              <String fx:value="50" />
+                                              <String fx:value="55" />
+                                          </FXCollections>
+                                      </items>
+                                  </ChoiceBox>
+                              </children>
+                           </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#cancelConsultation" prefWidth="200.0" text="Cancel">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitConsultation" prefWidth="200.0" text="Confirm">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </VBox>
+               <TitledPane fx:id="consultationSPane" expanded="false" text="Search Options">
                   <content>
                      <VBox>
                         <children>
@@ -815,7 +1043,7 @@
             <children>
                <FlowPane>
                   <children>
-                     <Button mnemonicParsing="false" text="Add Treatment">
+                     <Button mnemonicParsing="false" onAction="#addTreatment" text="Add Treatment">
                         <FlowPane.margin>
                            <Insets bottom="5.0" left="5.0" top="5.0" />
                         </FlowPane.margin>
@@ -835,7 +1063,89 @@
                      <Insets />
                   </VBox.margin>
                </FlowPane>
-               <TitledPane expanded="false" text="Search Options">
+                <VBox fx:id="treatmentAddPane" styleClass="add-pane" visible="false">
+                    <children>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="TOP_CENTER" text="Add Prescription" underline="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Patient:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label layoutX="10.0" layoutY="27.0" text="Treatment:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Start Date:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <ChoiceBox fx:id="newTreatmentPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <ChoiceBox fx:id="newTreatmentTreatment" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <DatePicker fx:id="newTreatmentDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                                <Label text="Consultant:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Comment:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets right="5.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <ChoiceBox fx:id="newTreatmentConsultant" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" />
+                                <TextArea fx:id="newTreatmentComment" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#cancelTreatment" prefWidth="200.0" text="Cancel">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitTreatment" prefWidth="200.0" text="Confirm">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </VBox>
+               <TitledPane fx:id="treatmentSPane" expanded="false" text="Search Options">
                   <content>
                      <VBox>
                         <children>
