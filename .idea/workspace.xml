@@ -178,7 +178,7 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
+            <state relative-caret-position="675">
               <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding />
             </state>
@@ -188,14 +188,19 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="956" column="32" lean-forward="false" selection-start-line="956" selection-start-column="32" selection-end-line="956" selection-end-column="32" />
+            <state relative-caret-position="197">
+              <caret line="303" column="88" lean-forward="false" selection-start-line="303" selection-start-column="88" selection-end-line="303" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-                <element signature="e#5299#5479#0" expanded="false" />
-                <element signature="e#5534#5717#0" expanded="false" />
-                <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+                <element signature="e#5863#6422#0" expanded="false" />
+                <element signature="e#6683#7248#0" expanded="false" />
+                <element signature="e#7512#8077#0" expanded="false" />
+                <element signature="e#8338#8895#0" expanded="false" />
+                <element signature="e#9153#9712#0" expanded="false" />
+                <element signature="e#10200#10380#0" expanded="false" />
+                <element signature="e#10435#10618#0" expanded="false" />
+                <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
                 <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
                 <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
                 <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -232,26 +237,37 @@
                 <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
                 <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
                 <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+                <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
                 <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
                 <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
                 <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
                 <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-                <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-                <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-                <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-                <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-                <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-                <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-                <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-                <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-                <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-                <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-                <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-                <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-                <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-                <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-                <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-                <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+                <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+                <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+                <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+                <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+                <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+                <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+                <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+                <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+                <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+                <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+                <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+                <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+                <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+                <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+                <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+                <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+                <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+                <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+                <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+                <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+                <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+                <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+                <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+                <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+                <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+                <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
               </folding>
             </state>
           </provider>
@@ -263,35 +279,9 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="1045" column="76" lean-forward="false" selection-start-line="1045" selection-start-column="76" selection-end-line="1045" selection-end-column="76" />
-              <folding>
-                <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="-493">
+              <caret line="1277" column="71" lean-forward="false" selection-start-line="1277" selection-start-column="71" selection-end-line="1277" selection-end-column="71" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -311,6 +301,7 @@
       <find>Consultants</find>
       <find>GP Practices</find>
       <find>name</find>
+      <find>conditionsCol</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -348,7 +339,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="-8" />
     <option name="width" value="1612" />
     <option name="height" value="800" />
@@ -684,7 +675,8 @@
       <workItem from="1519226964830" duration="589000" />
       <workItem from="1519228043682" duration="11078000" />
       <workItem from="1519246415432" duration="1060000" />
-      <workItem from="1519293523375" duration="6576000" />
+      <workItem from="1519293523375" duration="10309000" />
+      <workItem from="1519305481430" duration="5970000" />
     </task>
     <task id="LOCAL-00001" summary="Removed old files.">
       <created>1519121341095</created>
@@ -742,11 +734,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519295285696</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add consultations and treatments.">
+      <created>1519300674908</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1519300674908</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34329000" />
+    <option name="totallyTimeSpent" value="44032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -757,16 +756,16 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.196" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.196" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.203125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -829,11 +828,12 @@
     <MESSAGE value="Added a grid when add patients is clicked." />
     <MESSAGE value="Diagnosis in and validated." />
     <MESSAGE value="Add prescription." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add prescription." />
+    <MESSAGE value="Add consultations and treatments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add consultations and treatments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -869,9 +869,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -908,26 +913,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -940,33 +956,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,33 +988,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,9 +999,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1074,26 +1043,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1125,9 +1105,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1164,26 +1149,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1195,33 +1191,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,9 +1214,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1283,26 +1258,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1314,33 +1300,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,9 +1331,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1410,26 +1375,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1450,33 +1426,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
           <caret line="109" column="60" lean-forward="false" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1507,9 +1457,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1546,26 +1501,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1578,33 +1544,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
           <caret line="109" column="60" lean-forward="false" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1627,33 +1567,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1664,9 +1578,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1703,26 +1622,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>
@@ -1822,6 +1752,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1834,61 +1772,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="1045" column="76" lean-forward="false" selection-start-line="1045" selection-start-column="76" selection-end-line="1045" selection-end-column="76" />
-          <folding>
-            <element signature="n#Tab#0;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#1;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#2;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#3;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#4;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FXCollections#0;n#items#0;n#ChoiceBox#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="-493">
+          <caret line="1277" column="71" lean-forward="false" selection-start-line="1277" selection-start-column="71" selection-end-line="1277" selection-end-column="71" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="956" column="32" lean-forward="false" selection-start-line="956" selection-start-column="32" selection-end-line="956" selection-end-column="32" />
+        <state relative-caret-position="197">
+          <caret line="303" column="88" lean-forward="false" selection-start-line="303" selection-start-column="88" selection-end-line="303" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="e#5299#5479#0" expanded="false" />
-            <element signature="e#5534#5717#0" expanded="false" />
-            <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
+            <element signature="e#5863#6422#0" expanded="false" />
+            <element signature="e#6683#7248#0" expanded="false" />
+            <element signature="e#7512#8077#0" expanded="false" />
+            <element signature="e#8338#8895#0" expanded="false" />
+            <element signature="e#9153#9712#0" expanded="false" />
+            <element signature="e#10200#10380#0" expanded="false" />
+            <element signature="e#10435#10618#0" expanded="false" />
+            <element signature="method#runSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#getDiagnosesSQL#0;class#MainController#0" expanded="false" />
@@ -1925,26 +1834,37 @@
             <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelTreatment#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitConsultation#0;class#MainController#0" expanded="false" />
             <element signature="method#submitTreatment#0;class#MainController#0" expanded="false" />
-            <marker date="1519300494684" expanded="true" signature="23024:23068" ph="SELECT id, f... Patients" />
-            <marker date="1519300494684" expanded="true" signature="24167:24198" ph="SELECT treat... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="25251:25286" ph="SELECT locat... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="26348:26382" ph="SELECT consu... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="28758:28792" ph="SELECT medic... Medications" />
-            <marker date="1519300494684" expanded="true" signature="29847:29881" ph="SELECT `cond... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="32610:32680" ph="SELECT id FR... Consultants" />
-            <marker date="1519300494684" expanded="true" signature="33004:33073" ph="SELECT id FR... Conditions" />
-            <marker date="1519300494684" expanded="true" signature="33399:33469" ph="SELECT id FR... Medications" />
-            <marker date="1519300494684" expanded="true" signature="33791:33860" ph="SELECT id FR... GP Practices" />
-            <marker date="1519300494684" expanded="true" signature="34184:34250" ph="SELECT id FR... Treatment" />
-            <marker date="1519300494684" expanded="true" signature="38859:39207" ph="INSERT INTO Patients... " />
-            <marker date="1519300494684" expanded="true" signature="41349:41559" ph="INSERT INTO Diagnoses... " />
-            <marker date="1519300494684" expanded="true" signature="43570:43781" ph="INSERT INTO Prescriptions... " />
-            <marker date="1519300494684" expanded="true" signature="45751:45982" ph="INSERT INTO Consultations... " />
-            <marker date="1519300494684" expanded="true" signature="48557:48769" ph="INSERT INTO Prescriptions... " />
+            <element signature="method#addCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMedication#0;class#MainController#0" expanded="false" />
+            <element signature="method#addConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#addLocation#0;class#MainController#0" expanded="false" />
+            <element signature="method#addTreating#0;class#MainController#0" expanded="false" />
+            <marker date="1519312271004" expanded="true" signature="28260:28304" ph="SELECT id, f... Patients" />
+            <marker date="1519312271004" expanded="true" signature="29403:29434" ph="SELECT treat... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="30550:30585" ph="SELECT locat... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="31708:31742" ph="SELECT consu... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="34183:34217" ph="SELECT medic... Medications" />
+            <marker date="1519312271004" expanded="true" signature="35334:35368" ph="SELECT `cond... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38161:38231" ph="SELECT id FR... Consultants" />
+            <marker date="1519312271004" expanded="true" signature="38555:38624" ph="SELECT id FR... Conditions" />
+            <marker date="1519312271004" expanded="true" signature="38950:39020" ph="SELECT id FR... Medications" />
+            <marker date="1519312271004" expanded="true" signature="39342:39411" ph="SELECT id FR... GP Practices" />
+            <marker date="1519312271004" expanded="true" signature="39735:39801" ph="SELECT id FR... Treatment" />
+            <marker date="1519312271004" expanded="true" signature="44410:44758" ph="INSERT INTO Patients... " />
+            <marker date="1519312271004" expanded="true" signature="46900:47110" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519312271004" expanded="true" signature="49121:49332" ph="INSERT INTO Prescriptions... " />
+            <marker date="1519312271004" expanded="true" signature="51302:51533" ph="INSERT INTO Consultations... " />
+            <marker date="1519312271004" expanded="true" signature="54108:54320" ph="INSERT INTO Treatments... " />
+            <marker date="1519312271004" expanded="true" signature="55503:55568" ph="INSERT INTO Conditions... " />
+            <marker date="1519312271004" expanded="true" signature="56184:56252" ph="INSERT INTO Medications... " />
+            <marker date="1519312271004" expanded="true" signature="56870:56938" ph="INSERT INTO Consultants... " />
+            <marker date="1519312271004" expanded="true" signature="57548:57615" ph="INSERT INTO `GP Practices`... " />
+            <marker date="1519312271004" expanded="true" signature="58224:58288" ph="INSERT INTO Treatment... " />
           </folding>
         </state>
       </provider>

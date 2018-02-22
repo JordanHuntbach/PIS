@@ -11,11 +11,11 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -92,7 +92,7 @@
                      </Label>
                      <TextField fx:id="newPatientFName" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      <TextField fx:id="newPatientLName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     <DatePicker fx:id="newPatientDOB" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                     <DatePicker fx:id="newPatientDOB" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" showWeekNumbers="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      <Label text="Address 1:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                         <GridPane.margin>
                            <Insets right="5.0" />
@@ -361,7 +361,7 @@
                                 </Label>
                                 <ChoiceBox fx:id="newDiagnosisPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <ChoiceBox fx:id="newDiagnosisCondition" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <DatePicker fx:id="newDiagnosisDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                                <DatePicker fx:id="newDiagnosisDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" showWeekNumbers="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <Label text="Diagnositcian:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                     <GridPane.margin>
                                         <Insets right="5.0" />
@@ -588,7 +588,7 @@
                            </Label>
                            <ChoiceBox fx:id="newPrescriptionPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            <ChoiceBox fx:id="newPrescriptionMedication" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                           <DatePicker fx:id="newPrescriptionDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                           <DatePicker fx:id="newPrescriptionDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" showWeekNumbers="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            <Label text="Prescriber:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                               <GridPane.margin>
                                  <Insets right="5.0" />
@@ -813,7 +813,7 @@
                                 </Label>
                                 <ChoiceBox fx:id="newConsultationPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <ChoiceBox fx:id="newConsultationLocation" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <DatePicker fx:id="newConsultationDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                                <DatePicker fx:id="newConsultationDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" showWeekNumbers="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <Label text="Time:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                     <GridPane.margin>
                                         <Insets right="5.0" />
@@ -1102,7 +1102,7 @@
                                 </Label>
                                 <ChoiceBox fx:id="newTreatmentPID" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <ChoiceBox fx:id="newTreatmentTreatment" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <DatePicker fx:id="newTreatmentDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="3" showWeekNumbers="false"/>
+                                <DatePicker fx:id="newTreatmentDate" maxWidth="1.7976931348623157E308" promptText="DD/MM/YYYY" showWeekNumbers="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <Label text="Consultant:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                     <GridPane.margin>
                                         <Insets right="5.0" />
@@ -1264,35 +1264,76 @@
    </Tab>
     <Tab text="Add to Database">
       <content>
-         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-           <tabs>
-             <Tab text="Add Medicine">
-               <content>
-                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-             </Tab>
-             <Tab text="Add Consultant">
-               <content>
-                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-             </Tab>
-               <Tab text="Add Location">
-                 <content>
-                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                 </content>
-               </Tab>
-               <Tab text="Add Condition">
-                  <content>
-                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-               </Tab>
-               <Tab text="Add Treatment">
-                  <content>
-                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-               </Tab>
-           </tabs>
-         </TabPane>
+         <GridPane>
+             <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+             </columnConstraints>
+           <rowConstraints>
+             <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+             <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+            <children>
+               <TableView fx:id="conditionsTable" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                 <columns>
+                   <TableColumn fx:id="conditionsCol" prefWidth="75.0" text="Conditions" />
+                 </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+               </TableView>
+               <TableView fx:id="medicationTable" editable="true" layoutX="60.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <columns>
+                     <TableColumn fx:id="medicationCol" prefWidth="75.0" text="Medications" />
+                  </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+               </TableView>
+                <TableView fx:id="consultantsTable" editable="true" layoutX="60.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="consultantsCol" prefWidth="75.0" text="Consultants" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+                <TableView fx:id="locationsTable" editable="true" layoutX="60.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="locationsCol" prefWidth="75.0" text="GP Practices" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+                <TableView fx:id="treatmentsTable" editable="true" layoutX="60.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="treatmentsCol" prefWidth="75.0" text="Treatments" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+               <TextField fx:id="newCondition" onAction="#addCondition" promptText="Add new condition..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <TextField fx:id="newMedication" layoutX="60.0" layoutY="441.0" onAction="#addMedication" promptText="Add new medication..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               <TextField fx:id="newConsultant" layoutX="240.0" layoutY="441.0" onAction="#addConsultant" promptText="Add new consultant..." GridPane.columnIndex="3" GridPane.rowIndex="2" />
+               <TextField fx:id="newLocation" layoutX="420.0" layoutY="441.0" onAction="#addLocation" promptText="Add new practice..." GridPane.columnIndex="4" GridPane.rowIndex="2" />
+               <TextField fx:id="newTreatment" layoutX="600.0" layoutY="441.0" onAction="#addTreating" promptText="Add new treatment..." GridPane.columnIndex="5" GridPane.rowIndex="2" />
+               <Label text="Enter new information in the text boxes below each table. To edit / delete values, double click on a cell. " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER">
+                  <GridPane.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </GridPane.margin></Label>
+            </children>
+            <padding>
+               <Insets bottom="50.0" top="20.0" />
+            </padding>
+         </GridPane>
       </content>
    </Tab>
 </TabPane>

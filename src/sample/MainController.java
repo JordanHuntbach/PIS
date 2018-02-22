@@ -1,11 +1,14 @@
 package sample;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
@@ -129,6 +132,22 @@ public class MainController {
     public ChoiceBox<String> newTreatmentConsultant;
     public TextArea newTreatmentComment;
 
+    // Add Tab
+    public TableView conditionsTable;
+    public TableColumn<String, String> conditionsCol;
+    public TableView medicationTable;
+    public TableColumn<String, String> medicationCol;
+    public TableView consultantsTable;
+    public TableColumn<String, String> consultantsCol;
+    public TableView treatmentsTable;
+    public TableColumn<String, String> treatmentsCol;
+    public TableView locationsTable;
+    public TableColumn<String, String> locationsCol;
+    public TextField newCondition;
+    public TextField newMedication;
+    public TextField newConsultant;
+    public TextField newLocation;
+    public TextField newTreatment;
 
 
     private Connection conn;
@@ -144,6 +163,92 @@ public class MainController {
     }
 
     public void initialize() {
+        conditionsCol.setCellValueFactory(cellData ->
+                new ReadOnlyStringWrapper(cellData.getValue()));
+        conditionsCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        conditionsCol.setOnEditCommit(
+                t -> {
+                    String old = t.getOldValue();
+                    String newString = t.getNewValue();
+                    String sql;
+                    if (newString.equals("")) {
+                        sql = "DELETE FROM `Conditions` WHERE `condition` = '" + old + "'";
+                    } else {
+                        sql = "UPDATE `Conditions` SET `condition` = '" + newString + "' WHERE `condition` = '" + old + "'";
+                    }
+                    runSQL(sql);
+                    updateConditionSelectors();
+                }
+        );
+        medicationCol.setCellValueFactory(cellData ->
+                new ReadOnlyStringWrapper(cellData.getValue()));
+        medicationCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        medicationCol.setOnEditCommit(
+                t -> {
+                    String old = t.getOldValue();
+                    String newString = t.getNewValue();
+                    String sql;
+                    if (newString.equals("")) {
+                        sql = "DELETE FROM `Medications` WHERE `medication` = '" + old + "'";
+                    } else {
+                        sql = "UPDATE `Medications` SET `medication` = '" + newString + "' WHERE `medication` = '" + old + "'";
+                    }
+                    runSQL(sql);
+                    updateMedicationSelectors();
+                }
+        );
+        consultantsCol.setCellValueFactory(cellData ->
+                new ReadOnlyStringWrapper(cellData.getValue()));
+        consultantsCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        consultantsCol.setOnEditCommit(
+                t -> {
+                    String old = t.getOldValue();
+                    String newString = t.getNewValue();
+                    String sql;
+                    if (newString.equals("")) {
+                        sql = "DELETE FROM `Consultants` WHERE `consultant` = '" + old + "'";
+                    } else {
+                        sql = "UPDATE `Consultants` SET `consultant` = '" + newString + "' WHERE `consultant` = '" + old + "'";
+                    }
+                    runSQL(sql);
+                    updateConsultantSelectors();
+                }
+        );
+        treatmentsCol.setCellValueFactory(cellData ->
+                new ReadOnlyStringWrapper(cellData.getValue()));
+        treatmentsCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        treatmentsCol.setOnEditCommit(
+                t -> {
+                    String old = t.getOldValue();
+                    String newString = t.getNewValue();
+                    String sql;
+                    if (newString.equals("")) {
+                        sql = "DELETE FROM `Treatment` WHERE `treatment` = '" + old + "'";
+                    } else {
+                        sql = "UPDATE `Treatment` SET `treatment` = '" + newString + "' WHERE `treatment` = '" + old + "'";
+                    }
+                    runSQL(sql);
+                    updateTreatmentSelectors();
+                }
+        );
+        locationsCol.setCellValueFactory(cellData ->
+                new ReadOnlyStringWrapper(cellData.getValue()));
+        locationsCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        locationsCol.setOnEditCommit(
+                t -> {
+                    String old = t.getOldValue();
+                    String newString = t.getNewValue();
+                    String sql;
+                    if (newString.equals("")) {
+                        sql = "DELETE FROM `GP Practices` WHERE `location` = '" + old + "'";
+                    } else {
+                        sql = "UPDATE `GP Practices` SET `location` = '" + newString + "' WHERE `location` = '" + old + "'";
+                    }
+                    runSQL(sql);
+                    updateLocationSelectors();
+                }
+        );
+
         updateTreatmentSelectors();
         updateLocationSelectors();
         updateConsultantSelectors();
@@ -177,6 +282,17 @@ public class MainController {
         newConsultationMinute.setValue("");
     }
 
+    private void runSQL(String sql) {
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+    }
+
     private void fillTable(TableView table, ResultSet results) throws SQLException {
         ObservableList<ObservableList> data = FXCollections.observableArrayList();
 
@@ -186,7 +302,6 @@ public class MainController {
             //We are using non property style for making dynamic table
             final int j = i;
             TableColumn col = new TableColumn(results.getMetaData().getColumnName(i+1));
-            // TODO: Map sql column name to a nicer one.
             col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
             table.getColumns().addAll(col);
             System.out.println("Created column ["+i+"] ");
@@ -685,10 +800,12 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT treatment FROM Treatment");
             ObservableList<String> treatments = FXCollections.observableArrayList();
-            treatments.add("");
             while (rs.next()) {
                 treatments.add(rs.getString("treatment"));
             }
+            treatmentsTable.getItems().setAll(treatments);
+
+            treatments.add(0, "");
             treatmentTreatment.setItems(treatments);
             treatmentTreatment.setValue("");
             treatmentTreatment.getSelectionModel()
@@ -708,10 +825,12 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT location FROM `GP Practices`");
             ObservableList<String> locations = FXCollections.observableArrayList();
-            locations.add("");
             while (rs.next()) {
                 locations.add(rs.getString("location"));
             }
+            locationsTable.getItems().setAll(locations);
+
+            locations.add(0, "");
             consultationLocation.setItems(locations);
             consultationLocation.setValue("");
             consultationLocation.getSelectionModel()
@@ -731,10 +850,12 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT consultant FROM Consultants");
             ObservableList<String> consultants = FXCollections.observableArrayList();
-            consultants.add("");
             while (rs.next()) {
                 consultants.add(rs.getString("consultant"));
             }
+            consultantsTable.getItems().setAll(consultants);
+
+            consultants.add(0, "");
             consultationConsultant.setItems(consultants);
             consultationConsultant.setValue("");
             consultationConsultant.getSelectionModel()
@@ -775,10 +896,12 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT medication FROM Medications");
             ObservableList<String> medicines = FXCollections.observableArrayList();
-            medicines.add("");
             while (rs.next()) {
                 medicines.add(rs.getString("medication"));
             }
+            medicationTable.getItems().setAll(medicines);
+
+            medicines.add(0, "");
             prescriptionMeds.setItems(medicines);
             prescriptionMeds.setValue("");
             prescriptionMeds.getSelectionModel()
@@ -798,10 +921,12 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `condition` FROM Conditions");
             ObservableList<String> condition = FXCollections.observableArrayList();
-            condition.add("");
             while (rs.next()) {
                 condition.add(rs.getString("condition"));
             }
+            conditionsTable.getItems().setAll(condition);
+
+            condition.add(0, "");
             diagnosisCondition.setItems(condition);
             diagnosisCondition.setValue("");
             diagnosisCondition.getSelectionModel()
@@ -809,6 +934,8 @@ public class MainController {
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getDiagnoses());
             newDiagnosisCondition.setItems(condition);
             newDiagnosisCondition.setValue("");
+
+
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -1281,6 +1408,91 @@ public class MainController {
                 newTreatmentConsultant.getStyleClass().add("required");
             }
         }
+    }
+
+    public void addCondition() {
+        String condition = newCondition.getText();
+        if (!condition.equals("")) {
+            String sql = "INSERT INTO Conditions (`condition`) VALUES ('" + condition + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        }
+        updateConditionSelectors();
+        newCondition.clear();
+    }
+
+    public void addMedication() {
+        String medication = newMedication.getText();
+        if (!medication.equals("")) {
+            String sql = "INSERT INTO Medications (`medication`) VALUES ('" + medication + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        }
+        updateMedicationSelectors();
+        newMedication.clear();
+    }
+
+    public void addConsultant() {
+        String consultant = newConsultant.getText();
+        if (!consultant.equals("")) {
+            String sql = "INSERT INTO Consultants (`consultant`) VALUES ('" + consultant + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        }
+        updateConsultantSelectors();
+        newConsultant.clear();
+    }
+
+    public void addLocation() {
+        String location = newLocation.getText();
+        if (!location.equals("")) {
+            String sql = "INSERT INTO `GP Practices` (`location`) VALUES ('" + location + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        }
+        updateLocationSelectors();
+        newLocation.clear();
+    }
+
+    public void addTreating() {
+        String treatment = newTreatment.getText();
+        if (!treatment.equals("")) {
+            String sql = "INSERT INTO Treatment (`treatment`) VALUES ('" + treatment + "')";
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        }
+        updateTreatmentSelectors();
+        newTreatment.clear();
     }
 
 }
