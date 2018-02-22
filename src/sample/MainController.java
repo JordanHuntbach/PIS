@@ -26,7 +26,7 @@ public class MainController {
 
     // Patients Tab
     @FXML
-    public TableView patientsTable;
+    public TableView<String> patientsTable;
     public TextField patientID;
     public TextField patientFirstName;
     public TextField patientLastName;
@@ -133,15 +133,15 @@ public class MainController {
     public TextArea newTreatmentComment;
 
     // Add Tab
-    public TableView conditionsTable;
+    public TableView<String> conditionsTable;
     public TableColumn<String, String> conditionsCol;
-    public TableView medicationTable;
+    public TableView<String> medicationTable;
     public TableColumn<String, String> medicationCol;
-    public TableView consultantsTable;
+    public TableView<String> consultantsTable;
     public TableColumn<String, String> consultantsCol;
-    public TableView treatmentsTable;
+    public TableView<String> treatmentsTable;
     public TableColumn<String, String> treatmentsCol;
-    public TableView locationsTable;
+    public TableView<String> locationsTable;
     public TableColumn<String, String> locationsCol;
     public TextField newCondition;
     public TextField newMedication;
@@ -149,6 +149,7 @@ public class MainController {
     public TextField newLocation;
     public TextField newTreatment;
 
+    public TabPane tabPane;
 
     private Connection conn;
 
@@ -163,8 +164,7 @@ public class MainController {
     }
 
     public void initialize() {
-        conditionsCol.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue()));
+        conditionsCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue()));
         conditionsCol.setCellFactory(TextFieldTableCell.forTableColumn());
         conditionsCol.setOnEditCommit(
                 t -> {
@@ -180,8 +180,7 @@ public class MainController {
                     updateConditionSelectors();
                 }
         );
-        medicationCol.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue()));
+        medicationCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue()));
         medicationCol.setCellFactory(TextFieldTableCell.forTableColumn());
         medicationCol.setOnEditCommit(
                 t -> {
@@ -197,8 +196,7 @@ public class MainController {
                     updateMedicationSelectors();
                 }
         );
-        consultantsCol.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue()));
+        consultantsCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue()));
         consultantsCol.setCellFactory(TextFieldTableCell.forTableColumn());
         consultantsCol.setOnEditCommit(
                 t -> {
@@ -214,8 +212,7 @@ public class MainController {
                     updateConsultantSelectors();
                 }
         );
-        treatmentsCol.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue()));
+        treatmentsCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue()));
         treatmentsCol.setCellFactory(TextFieldTableCell.forTableColumn());
         treatmentsCol.setOnEditCommit(
                 t -> {
@@ -231,8 +228,7 @@ public class MainController {
                     updateTreatmentSelectors();
                 }
         );
-        locationsCol.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue()));
+        locationsCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue()));
         locationsCol.setCellFactory(TextFieldTableCell.forTableColumn());
         locationsCol.setOnEditCommit(
                 t -> {
@@ -249,18 +245,7 @@ public class MainController {
                 }
         );
 
-        updateTreatmentSelectors();
-        updateLocationSelectors();
-        updateConsultantSelectors();
-        updateConditionSelectors();
-        updateMedicationSelectors();
-        updatePatientSelectors();
-
-        getPatients();
-        getTreatments();
-        getDiagnoses();
-        getConsultations();
-        getPrescriptions();
+        updateAll();
 
         patientAddPane.managedProperty().bind(patientAddPane.visibleProperty());
         newPatientNum.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -293,6 +278,38 @@ public class MainController {
         }
     }
 
+    private void updateCell(String table, String rowID, String column, String newValue) {
+        String capitalised = newValue.substring(0, 1).toUpperCase() + newValue.substring(1);
+        if (column.equals("dob") && !newValue.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            // Invalid date.
+        } else if (column.equals("postcode") && newValue.length() > 8) {
+            // Invalid postcode.
+        } else if ((column.equals("contact_number") || column.equals("kin_number")) && !newValue.matches("^((\\(?0\\d{4}\\)?\\s?\\d{3}\\s?\\d{3})|(\\(?0\\d{3}\\)?\\s?\\d{3}\\s?\\d{4})|(\\(?0\\d{2}\\)?\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$")) {
+            // Invalid phone number - regex courtesy of http://regexlib.com/UserPatterns.aspx?authorid=d95177b0-6014-4e73-a959-73f1663ae814&AspxAutoDetectCookieSupport=1
+        } else if (column.equals("risk") && !(capitalised.equals("Low") || capitalised.equals("Medium") || capitalised.equals("High"))) {
+            // Invalid risk
+        } else {
+            // Valid change.
+            String sql = "UPDATE `" + table + "` SET `" + column + "` = '" + newValue + "' WHERE `id` = '" + rowID + "'";
+            runSQL(sql);
+        }
+        updateAll();
+    }
+
+    private void updateAll() {
+        updateLocationSelectors();
+        updateTreatmentSelectors();
+        updateConsultantSelectors();
+        updateConditionSelectors();
+        updateMedicationSelectors();
+
+        getPatients();
+        getConsultations();
+        getTreatments();
+        getPrescriptions();
+        getDiagnoses();
+    }
+
     private void fillTable(TableView table, ResultSet results) throws SQLException {
         ObservableList<ObservableList> data = FXCollections.observableArrayList();
 
@@ -301,8 +318,22 @@ public class MainController {
         for(int i=0 ; i<results.getMetaData().getColumnCount(); i++){
             //We are using non property style for making dynamic table
             final int j = i;
-            TableColumn col = new TableColumn(results.getMetaData().getColumnName(i+1));
-            col.setEditable(true);
+            String columnName = results.getMetaData().getColumnName(i + 1);
+            TableColumn col = new TableColumn(columnName);
+            if (i != 0) {
+                col.setCellFactory(TextFieldTableCell.forTableColumn());
+                EventHandler<TableColumn.CellEditEvent<ObservableList,String>> handler = event -> {
+                    // Need the new value, the id of the row, the name of the column, and the table to update.
+                    String newValue = event.getNewValue();
+                    String oldValue = event.getOldValue();
+                    String id = event.getRowValue().get(0).toString();
+                    String column = event.getTableColumn().getText();
+                    TablePosition position = event.getTablePosition();
+                    String tab = tabPane.getSelectionModel().getSelectedItem().getText();
+                    updateCell(tab, id, column, newValue);
+                };
+                col.setOnEditCommit(handler);
+            }
             col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
             table.getColumns().addAll(col);
             System.out.println("Created column ["+i+"] ");
@@ -313,8 +344,8 @@ public class MainController {
             //Iterate Row
             ObservableList<String> row = FXCollections.observableArrayList();
             for(int i=1 ; i<=results.getMetaData().getColumnCount(); i++){
-                //Iterate Column
-                row.add(results.getString(i));
+                String result = results.getString(i);
+                row.add(result);
             }
             System.out.println("Row added: "+row );
             data.add(row);

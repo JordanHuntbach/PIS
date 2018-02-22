@@ -25,7 +25,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="700.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<TabPane fx:id="tabPane" prefHeight="700.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
     <Tab text="Patients">
         <VBox prefHeight="200.0" prefWidth="100.0">
          <FlowPane>
@@ -1253,7 +1253,7 @@
                      </VBox>
                   </content>
                </TitledPane>
-               <TableView fx:id="treatmentTable">
+               <TableView fx:id="treatmentTable" editable="true">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
