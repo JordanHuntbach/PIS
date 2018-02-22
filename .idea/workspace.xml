@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/PIS/sample/main.css" afterPath="$PROJECT_DIR$/out/production/PIS/sample/main.css" />
-      <change beforePath="$PROJECT_DIR$/out/production/PIS/sample/patients.fxml" afterPath="$PROJECT_DIR$/out/production/PIS/sample/patients.fxml" />
       <change beforePath="$PROJECT_DIR$/src/sample/MainController.java" afterPath="$PROJECT_DIR$/src/sample/MainController.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/PatientController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/addPatient.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/main.css" afterPath="$PROJECT_DIR$/src/sample/main.css" />
       <change beforePath="$PROJECT_DIR$/src/sample/patients.fxml" afterPath="$PROJECT_DIR$/src/sample/patients.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -182,7 +177,7 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
+            <state relative-caret-position="568">
               <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding />
             </state>
@@ -192,14 +187,13 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="953">
-              <caret line="960" column="71" lean-forward="true" selection-start-line="960" selection-start-column="71" selection-end-line="960" selection-end-column="71" />
+            <state relative-caret-position="406">
+              <caret line="957" column="34" lean-forward="false" selection-start-line="957" selection-start-column="34" selection-end-line="957" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-                <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-                <element signature="e#4238#4418#0" expanded="false" />
-                <element signature="e#4473#4656#0" expanded="false" />
+                <element signature="e#4565#4745#0" expanded="false" />
+                <element signature="e#4800#4983#0" expanded="false" />
                 <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
                 <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
                 <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -215,27 +209,36 @@
                 <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
                 <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
                 <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-                <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
                 <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
                 <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
                 <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
                 <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
                 <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
                 <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+                <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+                <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+                <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
                 <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
                 <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+                <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
                 <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+                <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+                <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
                 <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-                <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-                <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-                <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-                <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-                <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-                <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-                <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-                <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-                <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-                <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+                <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+                <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+                <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+                <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+                <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+                <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+                <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+                <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+                <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+                <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+                <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+                <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+                <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+                <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
               </folding>
             </state>
           </provider>
@@ -243,9 +246,12 @@
       </file>
       <file leaf-file-name="patients.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="374" column="67" lean-forward="true" selection-start-line="374" selection-start-column="67" selection-end-line="374" selection-end-column="67" />
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="531" column="105" lean-forward="false" selection-start-line="531" selection-start-column="105" selection-end-line="531" selection-end-column="105" />
               <folding>
                 <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
@@ -257,8 +263,8 @@
                 <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-                <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+                <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+                <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
                 <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -266,9 +272,6 @@
                 <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
               </folding>
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -311,8 +314,8 @@
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/addPatient.fxml" />
         <option value="$PROJECT_DIR$/src/sample/PatientController.java" />
-        <option value="$PROJECT_DIR$/src/sample/patients.fxml" />
         <option value="$PROJECT_DIR$/src/sample/main.css" />
+        <option value="$PROJECT_DIR$/src/sample/patients.fxml" />
         <option value="$PROJECT_DIR$/src/sample/MainController.java" />
       </list>
     </option>
@@ -324,7 +327,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="-8" />
     <option name="width" value="1612" />
     <option name="height" value="800" />
@@ -486,8 +489,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -658,7 +661,9 @@
       <workItem from="1519213556354" duration="716000" />
       <workItem from="1519214417070" duration="8498000" />
       <workItem from="1519226964830" duration="589000" />
-      <workItem from="1519228043682" duration="11041000" />
+      <workItem from="1519228043682" duration="11078000" />
+      <workItem from="1519246415432" duration="1060000" />
+      <workItem from="1519293523375" duration="1579000" />
     </task>
     <task id="LOCAL-00001" summary="Removed old files.">
       <created>1519121341095</created>
@@ -702,11 +707,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519227660485</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Diagnosis in and validated.">
+      <created>1519241462909</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1519241462909</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26656000" />
+    <option name="totallyTimeSpent" value="29332000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -721,9 +733,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.203125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -741,6 +752,7 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -787,7 +799,8 @@
     <MESSAGE value="Reduced lag.&#10;Added scene for adding patient.&#10;Added some better css." />
     <MESSAGE value="Changed some column headings." />
     <MESSAGE value="Added a grid when add patients is clicked." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a grid when add patients is clicked." />
+    <MESSAGE value="Diagnosis in and validated." />
+    <option name="LAST_COMMIT_MESSAGE" value="Diagnosis in and validated." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -827,9 +840,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -845,43 +857,45 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
@@ -896,8 +910,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -905,9 +919,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
@@ -930,18 +941,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
@@ -956,8 +960,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -965,9 +969,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
@@ -977,9 +978,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -995,27 +995,36 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
@@ -1047,9 +1056,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1065,32 +1073,44 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
@@ -1105,8 +1125,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1114,9 +1134,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
@@ -1138,9 +1155,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1156,32 +1172,44 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
@@ -1196,8 +1224,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1205,9 +1233,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/main.css">
@@ -1237,9 +1262,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1255,27 +1279,36 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
@@ -1290,6 +1323,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Patient.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
           <caret line="109" column="60" lean-forward="false" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
@@ -1304,8 +1340,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1313,9 +1349,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
@@ -1345,9 +1378,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1363,33 +1395,45 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Patient.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
           <caret line="109" column="60" lean-forward="false" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
@@ -1404,8 +1448,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1413,9 +1457,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
@@ -1431,6 +1472,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
@@ -1445,8 +1489,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1454,9 +1498,6 @@
             <element signature="n#Tab#5;n#TabPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
@@ -1466,9 +1507,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1484,27 +1524,36 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>
@@ -1594,29 +1643,12 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/sample/PatientController.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/171af332-61ee-404f-96b7-e96255c661dd/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/addPatient.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
-          <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/PatientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1633,10 +1665,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+    <entry file="file://$PROJECT_DIR$/src/sample/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="374" column="67" lean-forward="true" selection-start-line="374" selection-start-column="67" selection-end-line="374" selection-end-column="67" />
+        <state relative-caret-position="568">
+          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/patients.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="531" column="105" lean-forward="false" selection-start-line="531" selection-start-column="105" selection-end-line="531" selection-end-column="105" />
           <folding>
             <element signature="n#columnConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#rowConstraints#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
@@ -1648,8 +1691,8 @@
             <element signature="n#Label#5;n#children#0;n#GridPane#0;n#children#0;n#VBox#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#TableView#0;n#children#0;n#VBox#0;n#content#0;n#Tab#1;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
-            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
+            <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#TitledPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#2;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#FlowPane#0;n#children#0;n#VBox#0;n#content#0;n#Tab#3;n#TabPane#0;n#!!top" expanded="false" />
             <element signature="n#Tab#4;n#TabPane#0;n#!!top" expanded="false" />
@@ -1658,28 +1701,16 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="953">
-          <caret line="960" column="71" lean-forward="true" selection-start-line="960" selection-start-column="71" selection-end-line="960" selection-end-column="71" />
+        <state relative-caret-position="406">
+          <caret line="957" column="34" lean-forward="false" selection-start-line="957" selection-start-column="34" selection-end-line="957" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="e#4238#4418#0" expanded="false" />
-            <element signature="e#4473#4656#0" expanded="false" />
+            <element signature="e#4565#4745#0" expanded="false" />
+            <element signature="e#4800#4983#0" expanded="false" />
             <element signature="method#fillTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatientsSQL#0;class#MainController#0" expanded="false" />
             <element signature="method#getPatients#0;class#MainController#0" expanded="false" />
@@ -1695,27 +1726,36 @@
             <element signature="method#updateTreatmentSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateLocationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConsultantSelectors#0;class#MainController#0" expanded="false" />
-            <element signature="method#updateMedicationSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#updateConditionSelectors#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPatients#0;class#MainController#0" expanded="false" />
             <element signature="method#clearDiagnoses#0;class#MainController#0" expanded="false" />
             <element signature="method#clearPrescriptions#0;class#MainController#0" expanded="false" />
             <element signature="method#clearConsultations#0;class#MainController#0" expanded="false" />
             <element signature="method#clearTreatments#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromConsultant#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromCondition#0;class#MainController#0" expanded="false" />
+            <element signature="method#idFromMedication#0;class#MainController#0" expanded="false" />
             <element signature="method#addPatient#0;class#MainController#0" expanded="false" />
             <element signature="method#addDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#addPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#cancelPatient#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#cancelPrescription#0;class#MainController#0" expanded="false" />
             <element signature="method#submitPatient#0;class#MainController#0" expanded="false" />
-            <marker date="1519241177972" expanded="true" signature="21609:21653" ph="SELECT id, f... Patients" />
-            <marker date="1519241177972" expanded="true" signature="22470:22501" ph="SELECT treat... Treatment" />
-            <marker date="1519241177972" expanded="true" signature="23450:23485" ph="SELECT locat... GP Practices" />
-            <marker date="1519241177972" expanded="true" signature="24440:24474" ph="SELECT consu... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="26517:26551" ph="SELECT medic... Medications" />
-            <marker date="1519241177972" expanded="true" signature="27495:27529" ph="SELECT `cond... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="30258:30328" ph="SELECT id FR... Consultants" />
-            <marker date="1519241177972" expanded="true" signature="30652:30721" ph="SELECT id FR... Conditions" />
-            <marker date="1519241177972" expanded="true" signature="32856:33200" ph="INSERT INTO Patients... " />
-            <marker date="1519241177972" expanded="true" signature="34565:34775" ph="INSERT INTO Diagnoses... " />
+            <element signature="method#submitDiagnosis#0;class#MainController#0" expanded="false" />
+            <element signature="method#submitPrescription#0;class#MainController#0" expanded="false" />
+            <marker date="1519295103946" expanded="true" signature="22027:22071" ph="SELECT id, f... Patients" />
+            <marker date="1519295103946" expanded="true" signature="22984:23015" ph="SELECT treat... Treatment" />
+            <marker date="1519295103946" expanded="true" signature="23964:23999" ph="SELECT locat... GP Practices" />
+            <marker date="1519295103946" expanded="true" signature="24954:24988" ph="SELECT consu... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="27144:27178" ph="SELECT medic... Medications" />
+            <marker date="1519295103946" expanded="true" signature="28233:28267" ph="SELECT `cond... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="30996:31066" ph="SELECT id FR... Consultants" />
+            <marker date="1519295103946" expanded="true" signature="31390:31459" ph="SELECT id FR... Conditions" />
+            <marker date="1519295103946" expanded="true" signature="31785:31855" ph="SELECT id FR... Medications" />
+            <marker date="1519295103946" expanded="true" signature="34646:34990" ph="INSERT INTO Patients... " />
+            <marker date="1519295103946" expanded="true" signature="36355:36565" ph="INSERT INTO Diagnoses... " />
+            <marker date="1519295103946" expanded="true" signature="38576:38787" ph="INSERT INTO Prescriptions... " />
           </folding>
         </state>
       </provider>

@@ -79,6 +79,14 @@ public class MainController {
     public ChoiceBox<String> prescriptionConsultant;
     public ChoiceBox<String> prescriptionMeds;
     public DatePicker prescriptionDate;
+    public TitledPane prescriptionSPane;
+
+    public VBox prescriptionAddPane;
+    public ChoiceBox<String> newPrescriptionPID;
+    public ChoiceBox<String> newPrescriptionMedication;
+    public DatePicker newPrescriptionDate;
+    public ChoiceBox<String> newPrescriptionConsultant;
+    public TextArea newPrescriptionComment;
 
 
     // Consultations Tab
@@ -141,6 +149,7 @@ public class MainController {
             }
         });
         diagnosisAddPane.managedProperty().bind(diagnosisAddPane.visibleProperty());
+        prescriptionAddPane.managedProperty().bind(prescriptionAddPane.visibleProperty());
     }
 
     private void fillTable(TableView table, ResultSet results) throws SQLException {
@@ -633,6 +642,8 @@ public class MainController {
             }
             newDiagnosisPID.setItems(patients);
             newDiagnosisPID.setValue("");
+            newPrescriptionPID.setItems(patients);
+            newPrescriptionPID.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -713,6 +724,8 @@ public class MainController {
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getTreatments());
             newDiagnosisConsultant.setItems(consultants);
             newDiagnosisConsultant.setValue("");
+            newPrescriptionConsultant.setItems(consultants);
+            newPrescriptionConsultant.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -734,6 +747,8 @@ public class MainController {
             prescriptionMeds.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue<? extends String> observable, String a, String b) -> getPrescriptions());
+            newPrescriptionMedication.setItems(medicines);
+            newPrescriptionMedication.setValue("");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -844,6 +859,17 @@ public class MainController {
         }
     }
 
+    private String idFromMedication(String medicationName) throws SQLException {
+        String sql = "SELECT id FROM Medications WHERE medication = '" + medicationName + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs.next()) {
+            return rs.getString("id");
+        } else {
+            return "NONE";
+        }
+    }
+
     public void addPatient() {
         patientSPane.setExpanded(false);
         patientAddPane.setVisible(true);
@@ -852,6 +878,11 @@ public class MainController {
     public void addDiagnosis() {
         diagnosisSPane.setExpanded(false);
         diagnosisAddPane.setVisible(true);
+    }
+
+    public void addPrescription() {
+        prescriptionSPane.setExpanded(false);
+        prescriptionAddPane.setVisible(true);
     }
 
     public void cancelPatient() {
@@ -879,6 +910,18 @@ public class MainController {
         newDiagnosisConsultant.getStyleClass().remove("required");
         newDiagnosisDate.setValue(null);
         newDiagnosisComment.setText("");
+    }
+
+    public void cancelPrescription() {
+        prescriptionAddPane.setVisible(false);
+        newPrescriptionPID.setValue("");
+        newPrescriptionPID.getStyleClass().remove("required");
+        newPrescriptionMedication.setValue("");
+        newPrescriptionMedication.getStyleClass().remove("required");
+        newPrescriptionConsultant.setValue("");
+        newPrescriptionConsultant.getStyleClass().remove("required");
+        newPrescriptionDate.setValue(null);
+        newPrescriptionComment.setText("");
     }
 
     public void submitPatient() {
@@ -947,20 +990,67 @@ public class MainController {
                 System.out.println("VendorError: " + e.getErrorCode());
             }
         } else {
+            newDiagnosisPID.getStyleClass().remove("required");
+            newDiagnosisCondition.getStyleClass().remove("required");
+            newDiagnosisConsultant.getStyleClass().remove("required");
             if (id.equals("")) {
                 newDiagnosisPID.getStyleClass().add("required");
-            } else {
-                newDiagnosisPID.getStyleClass().remove("required");
             }
             if (condition.equals("")) {
                 newDiagnosisCondition.getStyleClass().add("required");
-            } else {
-                newDiagnosisCondition.getStyleClass().remove("required");
             }
             if (consultant.equals("")) {
                 newDiagnosisConsultant.getStyleClass().add("required");
-            } else {
-                newDiagnosisConsultant.getStyleClass().remove("required");
+            }
+        }
+    }
+
+    public void submitPrescription() {
+        String id = newPrescriptionPID.getValue();
+        String medication = newPrescriptionMedication.getValue();
+        String consultant = newPrescriptionConsultant.getValue();
+        String comment = newPrescriptionComment.getText();
+        LocalDate localDate = newPrescriptionDate.getValue();
+
+        if (!id.equals("") && !medication.equals("") && !consultant.equals("")) {
+            try{
+                id = id.split(":")[0];
+                consultant = idFromConsultant(consultant);
+                medication = idFromMedication(medication);
+
+                String date;
+                if (localDate == null) {
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date current = new Date();
+                    date = dateFormat.format(current);
+                } else {
+                    date = localDate.toString();
+                }
+
+                String sql = "INSERT INTO Prescriptions (patient_id, medication, `date`, prescriber, `comment`) " +
+                        "VALUES ('" + id + "', '" + medication + "', '" + date + "', '" + consultant + "', '" + comment + "')";
+
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(sql);
+                getPrescriptions();
+                cancelPrescription();
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e.getMessage());
+                System.out.println("SQLState: " + e.getSQLState());
+                System.out.println("VendorError: " + e.getErrorCode());
+            }
+        } else {
+            newPrescriptionPID.getStyleClass().remove("required");
+            newPrescriptionMedication.getStyleClass().remove("required");
+            newPrescriptionConsultant.getStyleClass().remove("required");
+            if (id.equals("")) {
+                newPrescriptionPID.getStyleClass().add("required");
+            }
+            if (medication.equals("")) {
+                newPrescriptionMedication.getStyleClass().add("required");
+            }
+            if (consultant.equals("")) {
+                newPrescriptionConsultant.getStyleClass().add("required");
             }
         }
     }
